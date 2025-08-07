@@ -1,15 +1,192 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-  
-
-    <title>Document</title>
+    <title>Foodzy - A Treasure of Tastes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
-<body >
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Top Navigation -->
+            <div class="nav-top">
+                <div class="nav-left">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul class="nav-links">
+                        <li><a href="#" class="active">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#">Category <i class="fas fa-chevron-down"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#">Products <i class="fas fa-chevron-down"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#">Pages <i class="fas fa-chevron-down"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#">Blog <i class="fas fa-chevron-down"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#">Elements <i class="fas fa-chevron-down"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-right">
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>+123 (456) (7890)</span>
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="nav-bottom">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <div class="chef-icon">
+                            <img src="Images/Page-1 1.png" alt="logo" class="chef-image">
+                        </div>
+                    </div>
+                    <div class="logo-text">
+                        <h2>Foodzy</h2>
+                        <p>A Treasure of Tastes</p>
+                    </div>
+                </div>
+
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for items...">
+                    <select class="category-select">
+                        <option>All Categories</option>
+                        <option>Pizza</option>
+                        <option>Burgers</option>
+                        <option>Pasta</option>
+                    </select>
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+
+                <div class="nav-actions">
+                    <a href="#" class="action-item">
+                        <i class="fas fa-user"></i>
+                        <span>Account</span>
+                    </a>
+                    <a href="#" class="action-item">
+                        <i class="fas fa-heart"></i>
+                        <span>Wishlist</span>
+                    </a>
+                    <a href="#" class="action-item">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Cart</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <p class="hero-subtitle">Super Delicious</p>
+                    <h1 class="hero-title">THE BEST WAY TO<br>STUFF YOUR<br>WALLET.</h1>
+                    <p class="hero-deal">Today's Best Deal</p>
+                    <button class="order-btn">
+                        <i class="fas fa-arrow-right"></i>
+                        ORDER NOW
+                    </button>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="discount-badge">
+                        <span class="discount-text">50%<br>OFF</span>
+                    </div>
+                    <!-- <div class="pasta-container">
+                        <img src="Images/food-facebook-cover-14.psd (2).png" alt="Delicious Pasta" class="pasta-image">
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative Elements -->
+        <div class="decoration decoration-top-right"></div>
+        <div class="decoration decoration-bottom-left"></div>
+    </section>
+
+   <div class="container sec2">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="homeCategory">
+                 <div class="homeCategoryItem">
+                    <a href="#">Cake & Milk</a>
+                    <span>(65 items)</span>
+                  </div>
+                 <div class="homeCategoryItem">
+                    <a href="#">Fresh Meat</a>
+                    <span>(30 items)</span>
+                 </div>
+                 <div class="homeCategoryItem">
+                    <a href="#">Vegetables</a>
+                    <span>(25 items)</span>
+                 </div>
+                 <div class="homeCategoryItem">
+                    <a href="#">Apple & Mango</a>
+                    <span>(45 items)</span>
+                 </div>
+                 <div class="homeCategoryItem">
+                    <a href="#">Strawberry</a>
+                    <span>(68 items)</span>
+                 </div>
+                 <div class="homeCategoryItem view-more">
+                    <a href="#">View more</a>
+                 </div>
+                </div>
+            </div>
+              <div class="col-md-4">
+                <div class="homeCategory">
+                   <div class="homeCategoryImg Img1">
+                     <div class="categoryOff">
+                        <h3>50% OFF</h3>
+                     </div>
+                     <div class="categoryTitle">
+                        <h3>Cake</h3>
+                    </div>
+                    <div class="categoryBtn">
+                        <button class="btn btn-primary">Shop</button>
+                    </div>
+                   </div>
+                </div>
+            </div>
+              <div class="col-md-4">
+                <div class="homeCategory">
+                     
+                     <div class="homeCategoryImg Img2">
+                        <div class="categoryOff">
+                        <h3>40% OFF</h3>
+                     </div>
+                     <div class="categoryTitle">
+                        <h3>Milk</h3>
+                    </div>
+                    <div class="categoryBtn">
+                        <button class="btn btn-primary">Shop</button>
+                    </div>
+                   </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    
     <div class="footer " style="width: 100%; height: 413px; background-color: #E9E9E9;">
     <div class="container " >
 <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top" style="width: 1330px; height: 412.19px; "> 
@@ -55,8 +232,52 @@
           </div> 
                         </footer></div>
                         </div>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-  
+    <script src="JS/script.js"></script>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

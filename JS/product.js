@@ -66,5 +66,15 @@ searchproduct.onkeyup = function () {
     products(matchedvalue); // render filtered products
 }
 
+//filter
+var filterCategory = document.getElementById("vegetablefilter");
+filterCategory.onclick = function(){
+    var matchcategory = [];
+    for (let index = 0; index < arrproduct.length; index++) {
+        
+        
+    }
+}
+
  
 

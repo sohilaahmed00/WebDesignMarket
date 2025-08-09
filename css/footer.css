@@ -1,0 +1,78 @@
+ body {
+            font-family: 'Arial', sans-serif;
+        }
+        .footer-section {
+            background-color: #f8f9fa;
+            padding-top: 50px;
+            padding-bottom: 20px;
+            color: #6c757d;
+        }
+        .footer-section h5 {
+            font-weight: bold;
+            color: #212529;
+            margin-bottom: 20px;
+        }
+        .footer-section .logo-section .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #212529;
+        }
+        .footer-section .logo-section .tagline {
+            font-size: 12px;
+            color: #6c757d;
+        }
+        .footer-section .contact-info p {
+            margin-bottom: 10px;
+        }
+        .footer-section .contact-info i {
+            color: #dc3545;
+            margin-right: 10px;
+        }
+        .footer-section .nav-link {
+            padding: 5px 0 !important;
+            color: #6c757d;
+            transition: color 0.2s;
+        }
+        .footer-section .nav-link:hover {
+            color: #212529;
+        }
+        .footer-section .newsletter-form .form-control {
+            border-radius: 20px;
+            padding: 10px 20px;
+        }
+        .footer-section .newsletter-form .btn {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50% );
+            background-color: #fff;
+            border: none;
+        }
+        .footer-section .social-icons a {
+            color: #212529;
+            margin-right: 15px;
+            font-size: 18px;
+            transition: color 0.2s;
+        }
+        .footer-section .social-icons a:hover {
+            color: #dc3545;
+        }
+        .footer-section .gallery-img {
+            width: 100%;
+            max-width: 60px;
+            border-radius: 8px;
+            margin-right: 10px;
+        }
+        .footer-bottom {
+            border-top: 1px solid #dee2e6;
+            padding-top: 20px;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+        .footer-bottom a {
+            color: #dc3545;
+            text-decoration: none;
+        }

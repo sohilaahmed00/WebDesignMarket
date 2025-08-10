@@ -187,51 +187,57 @@
 </div>
 
  <div class="container my-5">
-        <div class="text-center section-title">
-            <h2>Popular Products</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore lacus vel facilisis.</p>
+    <div class="text-center section-title">
+        <h2>Popular Products</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore lacus vel facilisis.</p>
+    </div>
+    
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-lg-3 sidebar">
+            <ul class="list-group">
+                <li class="list-group-item active" data-category="All">
+                    All <span class="arrow">+</span>
+                </li>
+                <li class="list-group-item" data-category="snacks">
+                    Snack <span class="arrow">→</span>
+                </li>
+                <li class="list-group-item" data-category="vegetables">
+                    Vegetable <span class="arrow">→</span>
+                </li>
+                <li class="list-group-item" data-category="fruits">
+                    Fruit <span class="arrow">→</span>
+                </li>
+                <li class="list-group-item" data-category="bakery">
+                    Bakery <span class="arrow">→</span>
+                </li>
+            </ul>
+            
+            <div class="promo-card">
+                <div class="promo-content">
+                    <div class="promo-eyebrow">Juicy</div>
+                    <div class="promo-title">FRUITS</div>
+                    <div class="promo-sub">100% Natural</div>
+                    <a href="#" class="promo-btn">Shop Now</a>
+                </div>
+            </div>
         </div>
-
-        <div class="row">
-            <!-- Sidebar -->
-            <div class="col-lg-3 sidebar">
-                <ul class="list-group">
-                    <li class="list-group-item active" data-category="All">
-                        All <span class="arrow">+</span>
-                    </li>
-                    <li class="list-group-item" data-category="Snacks">
-                        Snack <span class="arrow">→</span>
-                    </li>
-                    <li class="list-group-item" data-category="Vegetables">
-                        Vegetable <span class="arrow">→</span>
-                    </li>
-                    <li class="list-group-item" data-category="Fruits">
-                        Fruit <span class="arrow">→</span>
-                    </li>
-                    <li class="list-group-item" data-category="Bakery">
-                        Bakery <span class="arrow">→</span>
-                    </li>
-                </ul>
+        
+        <!-- Products Grid -->
+        <div class="col-lg-9 product-grid-container">
+            <div id="product-grid" class="row g-3">
+                <!-- Products will be injected here by JavaScript -->
+            </div>
+            
+            
+            <div id="pagination-container" class="mt-4 d-flex justify-content-center">
                 
-                <div class="promo-card">
-                    <div class="promo-content">
-                        <div class="promo-eyebrow">Juicy</div>
-                        <div class="promo-title">FRUITS</div>
-                        <div class="promo-sub">100% Natural</div>
-                        <a href="#" class="promo-btn">Shop Now</a>
-                    </div>
-                </div>
             </div>
-
-            <!-- Products Grid -->
-            <div class="col-lg-9">
-                <div id="product-grid" class="row g-3">
-                    <!-- Products will be injected here by JavaScript -->
-                </div>
-            </div>
+            
+           
         </div>
     </div>
-   
+</div>
 <section class="section-padding">
     <div class="container">
         <div class="row g-4">

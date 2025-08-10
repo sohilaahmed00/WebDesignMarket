@@ -1,4 +1,16 @@
 
+/*
+magproducturl --> id="productimg"
+fonts-->  id="productfont"
+div buttons --> id="button"
+Addbutton-->     id="Addbutton"
+detailsbutton --> id="productetails"
+
+*/
+
+
+
+
 arrproduct=[
     {magproducturl:'./Images/1.jpg.png', categoryproduct:'vegetables',p:'Fresh organic villa farm lomon<br> 500gm pack' , salary:'$120',nameproduct: 'Fresh Organic Lemon'},
    {magproducturl:'./Images/2.jpg.png', categoryproduct:'snakes',p:'Best snakes with hazel nut pack <br>200gm',salary:'$145',nameproduct: 'fresh apple'},
@@ -30,7 +42,8 @@ for (let i = 0; i < array.length; i++) {
          <i class="fa-regular fa-star  " style=""></i>
          <i class="fa-regular fa-star  " style=""></i></div> 
     <p class="text-center" style=" font-weight: bold;">  ${array[i].p}</p>
-    <div id="Addbutton" class="d-flex justify-content-between"><p style="color: red; font-weight: 700; font-weight: bold; margin-left:50px ;" class="text-center "> ${array[i].salary}</p> <button id="button" style="color:white ; background-color: red;width: 85px;height: 36px;border-radius: 4px;border: red ;" > Add</button></div>
+    <div id="button" class="d-flex justify-content-between"><p style="color: red; font-weight: 700; font-weight: bold; margin-left:50px ;" class="text-center "> ${array[i].salary}</p>
+   <a href="https://web.whatsapp.com/" target="_blank"><button id="productetails" style="color:white ; background-color: red;width: 85px;height: 36px;border-radius: 4px;border: red ;" > Details</button></a>  <button id="Addbutton" style="color:white ; background-color: red;width: 85px;height: 36px;border-radius: 4px;border: red ;" > Add</button></div>
 
 
 </div> 

@@ -155,3 +155,138 @@ document.addEventListener('mousemove', function(e) {
         decoration.style.transform = `translate(${x}px, ${y}px)`;
     });
 });
+
+// Product data
+const arrproduct = [
+    { 
+        magproducturl: './Images/1.jpg.png', 
+        h6: 'Vegetables', 
+        p: 'Fresh organic villa farm lemon 500gm pack', 
+        salary: '$120.25', 
+        old_salary: '$123.25', 
+        rating: 4.5 
+    },
+    { 
+        magproducturl: './Images/9.jpg.png', 
+        h6: 'Snacks', 
+        p: 'Best snakes with hazel nut pack 200gm', 
+        salary: '$145', 
+        old_salary: '$150', 
+        rating: 5.0 
+    },
+    { 
+        magproducturl: './Images/2.jpg.png', 
+        h6: 'Fruits', 
+        p: 'Fresh organic apple 1kg simla marming', 
+        salary: '$120.25', 
+        old_salary: '$123.26', 
+        rating: 4.5 
+    },
+    { 
+        magproducturl: './Images/3 .jpg.png', 
+        h6: 'Fruits', 
+        p: 'Organic fresh venila farm watermelon 5kg', 
+        salary: '$50.30', 
+        old_salary: '$72.60', 
+        rating: 3.2 
+    },
+    { 
+        magproducturl: './Images/10.jpg.png', 
+        h6: 'Snacks', 
+        p: 'Sweet crunchy nut mix 250gm pack', 
+        salary: '$120.25', 
+        old_salary: '$123.25', 
+        rating: 5.0 
+    },
+    { 
+        magproducturl: './Images/17.jpg.png', 
+        h6: 'Bakery', 
+        p: 'Delicious white baked fresh bread and toast', 
+        salary: '$20', 
+        old_salary: '$22.10', 
+        rating: 5.0 
+    }
+];
+
+// Render stars function
+function renderStars(rating) {
+    let stars = '';
+    const fullStars = Math.floor(rating);
+    const halfStar = rating % 1 !== 0;
+    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+
+    for (let i = 0; i < fullStars; i++) { 
+        stars += '<i class="fas fa-star"></i>'; 
+    }
+    if (halfStar) { 
+        stars += '<i class="fas fa-star-half-alt"></i>'; 
+    }
+    for (let i = 0; i < emptyStars; i++) { 
+        stars += '<i class="far fa-star"></i>'; 
+    }
+    return `${stars} <span>(${rating.toFixed(1)})</span>`;
+}
+
+// Display products function
+function displayProducts(productsArray = arrproduct) {
+    const productGrid = document.getElementById('product-grid');
+    let productHTML = '';
+
+    if (productsArray.length === 0) {
+        productHTML = '<div class="col-12"><p class="text-center">No products found.</p></div>';
+    } else {
+        productsArray.forEach(product => {
+            productHTML += `
+                <div class="col-lg-4 col-md-6">
+                    <div class="product-card">
+                        <img src="${product.magproducturl}" alt="${product.p}" loading="lazy">
+                        <div class="product-category">${product.h6}</div>
+                        <div class="rating-stars">${renderStars(product.rating)}</div>
+                        <h3 class="product-title">${product.p}</h3>
+                        <div class="product-price-container">
+                            <span class="product-price">${product.salary}</span>
+                            <span class="old-price">${product.old_salary}</span>
+                        </div>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            `;
+        });
+    }
+    productGrid.innerHTML = productHTML;
+}
+
+// Initialize page
+document.addEventListener('DOMContentLoaded', () => {
+    // Initial display of all products
+    displayProducts();
+
+    // Category filtering logic
+    const categoryLinks = document.querySelectorAll('.sidebar .list-group-item');
+    categoryLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Manage active state
+            categoryLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+
+            const selectedCategory = this.getAttribute('data-category');
+            let filteredProducts;
+
+            if (selectedCategory === 'All') {
+                filteredProducts = arrproduct;
+            } else {
+                filteredProducts = arrproduct.filter(product => product.h6 === selectedCategory);
+            }
+            displayProducts(filteredProducts);
+        });
+    });
+
+    // Add to cart functionality
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('add-to-cart-btn')) {
+            e.preventDefault();
+            // Add your cart logic here
+            alert('Product added to cart!');
+        }
+    });
+});

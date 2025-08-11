@@ -11,7 +11,7 @@
 //     {magproducturl:'./Images/12.jpg.png', categoryproduct:'bakery', p:'Whole grain bread nutritious choice', salary:'$22', old_salary:'$25.10', rating:4.7, nameproduct:'whole grain'}
 // ];
 
-let arrproduct;
+// let arrproduct;
 try {
     arrproduct = JSON.parse(localStorage.getItem("productsArr")) || defaultProducts;
 } catch (error) {

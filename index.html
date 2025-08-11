@@ -1,19 +1,514 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Foodzy - A Treasure of Tastes</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-    <h2></h2>
-    <p>Welcome to the Web Design Market!</p>
-    <p>Here you can find a variety of web design templates and resources to help you create stunning websites.</p>
-    <p>Explore our collection and start building your dream site today!</p>
-    <footer>
-        <p>&copy; 2023 Web Design Market. All rights reserved.</p>
-    </footer>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Top Navigation -->
+            <div class="nav-top">
+                <div class="nav-left">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul class="nav-links">
+                        <li><a href="#" class="active">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#">Category <i class="fas fa-chevron-down"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="product.html">Products <i class="fas fa-chevron-down"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#">Pages <i class="fas fa-chevron-down"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="blogdetails.html">Blog <i class="fas fa-chevron-down"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#">Elements <i class="fas fa-chevron-down"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-right">
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>+123 (456) (7890)</span>
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="nav-bottom">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <div class="chef-icon">
+                            <img src="Images/Page-1 1.png" alt="logo" class="chef-image">
+                        </div>
+                    </div>
+                    <div class="logo-text">
+                        <h2>Foodzy</h2>
+                        <p>A Treasure of Tastes</p>
+                    </div>
+                </div>
+
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for items...">
+                    <select class="category-select">
+                        <option>All Categories</option>
+                        <option>Pizza</option>
+                        <option>Burgers</option>
+                        <option>Pasta</option>
+                    </select>
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+
+                <div class="nav-actions">
+                    <a href="#" class="action-item">
+                        <i class="fas fa-user"></i>
+                        <span>Account</span>
+                    </a>
+                    <a href="#" class="action-item">
+                        <i class="fas fa-heart"></i>
+                        <span>Wishlist</span>
+                    </a>
+                    <a href="#" class="action-item">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Cart</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <p class="hero-subtitle">Super Delicious</p>
+                    <h1 class="hero-title">THE BEST WAY TO<br>STUFF YOUR<br>WALLET.</h1>
+                    <p class="hero-deal">Today's Best Deal</p>
+                    <button class="order-btn">
+                        <i class="fas fa-arrow-right"></i>
+                        ORDER NOW
+                    </button>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="discount-badge">
+                        <span class="discount-text">50%<br>OFF</span>
+                    </div>
+                    <!-- <div class="pasta-container">
+                        <img src="Images/food-facebook-cover-14.psd (2).png" alt="Delicious Pasta" class="pasta-image">
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative Elements -->
+        <div class="decoration decoration-top-right"></div>
+        <div class="decoration decoration-bottom-left"></div>
+    </section>
+
+   <div class="container sec2">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="homeCategory">
+                 <div class="homeCategoryItem">
+                    <a href="#">Cake & Milk</a>
+                    <span>(65 items)</span>
+                  </div>
+                 <div class="homeCategoryItem">
+                    <a href="#">Fresh Meat</a>
+                    <span>(30 items)</span>
+                 </div>
+                 <div class="homeCategoryItem">
+                    <a href="#">Vegetables</a>
+                    <span>(25 items)</span>
+                 </div>
+                 <div class="homeCategoryItem">
+                    <a href="#">Apple & Mango</a>
+                    <span>(45 items)</span>
+                 </div>
+                 <div class="homeCategoryItem">
+                    <a href="#">Strawberry</a>
+                    <span>(68 items)</span>
+                 </div>
+                 <div class="homeCategoryItem view-more">
+                    <a href="#">View more</a>
+                 </div>
+                </div>
+            </div>
+              <div class="col-md-4">
+                <div class="homeCategory">
+                   <div class="homeCategoryImg Img1">
+                     <div class="categoryOff">
+                        <h3>50% OFF</h3>
+                     </div>
+                     <div class="categoryTitle">
+                        <h3>Cake</h3>
+                    </div>
+                    <div class="categoryBtn">
+                        <button class="btn btn-primary">Shop</button>
+                    </div>
+                   </div>
+                </div>
+            </div>
+              <div class="col-md-4">
+                <div class="homeCategory">
+                     
+                     <div class="homeCategoryImg Img2">
+                        <div class="categoryOff">
+                        <h3>40% OFF</h3>
+                     </div>
+                     <div class="categoryTitle">
+                        <h3>Milk</h3>
+                    </div>
+                    <div class="categoryBtn">
+                        <button class="btn btn-primary">Shop</button>
+                    </div>
+                   </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+ <div class="container my-5">
+    <div class="text-center section-title">
+        <h2>Popular Products</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore lacus vel facilisis.</p>
+    </div>
     
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-lg-3 sidebar">
+            <ul class="list-group">
+                <li class="list-group-item active" data-category="All">
+                    All <span class="arrow">+</span>
+                </li>
+                <li class="list-group-item" data-category="snacks">
+                    Snack <span class="arrow">→</span>
+                </li>
+                <li class="list-group-item" data-category="vegetables">
+                    Vegetable <span class="arrow">→</span>
+                </li>
+                <li class="list-group-item" data-category="fruits">
+                    Fruit <span class="arrow">→</span>
+                </li>
+                <li class="list-group-item" data-category="bakery">
+                    Bakery <span class="arrow">→</span>
+                </li>
+            </ul>
+            
+            <div class="promo-card">
+                <div class="promo-content">
+                    <div class="promo-eyebrow">Juicy</div>
+                    <div class="promo-title">FRUITS</div>
+                    <div class="promo-sub">100% Natural</div>
+                    <a href="#" class="promo-btn">Shop Now</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Products Grid -->
+        <div class="col-lg-9 product-grid-container">
+            <div id="product-grid" class="row g-3">
+                <!-- Products will be injected here by JavaScript -->
+            </div>
+            
+            
+            <div id="pagination-container" class="mt-4 d-flex justify-content-center">
+                
+            </div>
+            
+           
+        </div>
+    </div>
+</div>
+<section class="section-padding">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Card 1: Healthy Bakery Products -->
+            <div class="col-lg-4 col-md-6">
+                <div class="offer-card offer-card-1" style="background-image: url('./Images/9 → 1.jpg.png');">
+                    <div class="offer-card-content">
+                        <h3>Healthy Bakery Products</h3>
+                        <span class="discount text-green">30%</span>
+                        <p class="discount-text text-green">Off on first order</p>
+                        <a href="#" class="btn-shop">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 2: Fresh Snacks & Sweets -->
+            <div class="col-lg-4 col-md-6">
+                <div class="offer-card offer-card-2" style="background-image: url('./Images/9 → 2.jpg.png');">
+                    <div class="offer-card-content">
+                        <h3>Fresh Snacks & Sweets</h3>
+                        <span class="discount text-orange">20%</span>
+                        <p class="discount-text text-orange">Off on first order</p>
+                        <a href="#" class="btn-shop">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 3: Fresh & Healthy Organic Fruits -->
+            <div class="col-lg-4 col-md-6">
+                <div class="offer-card offer-card-3" style="background-image: url('./Images/9 → 3.jpg.png');">
+                    <div class="offer-card-content">
+                        <h3>Fresh & Healthy Organic Fruits</h3>
+                        <span class="discount text-red">35%</span>
+                        <p class="discount-text text-red">Off on first order</p>
+                        <a href="#" class="btn-shop">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="section-padding" style="padding-top: 0;">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-box">
+                        <h5>Product Packing</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-box">
+                        <h5>24X7 Support</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-box">
+                        <h5>Delivery in 5 Days</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-box">
+                        <h5>Payment Secure</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+ <section class="section-padding">
+    <div class="container">
+        <div class="row g-4">
+            <div class=" col-md-3">
+                <div class="gallery-item">
+                    <img src="./Images/Listbox → Option.png" alt="Pasta">
+                </div>
+            </div>
+            <div class=" col-md-3">
+                <div class="gallery-item">
+                    <img src="./Images/Listbox → Option (1).png" alt="Pizza">
+                </div>
+            </div>
+            <div class=" col-md-6">
+                <div class="gallery-promo">
+                    <h3>Organic & Healthy <br> Vegetables</h3>
+                    <p>25% OFF</p>
+                    <a href="#" class="btn btn-custom">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Testimonials Section -->
+    <section class="section-padding bg-light">
+        <div class="container text-center">
+            <h2 class="section-title">Great Words From People</h2>
+            <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <img src="./Images/per2.png" alt="Stephen Smith" class="testimonial-img">
+                            <h5>Stephen Smith</h5>
+                            <span>Co Founder</span>
+                            <p>"Venenatis tellus in metus vulputate eu scelerisque felis. Velit euismod in pellentesque massa placerat duis."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <img src="./Images/per1.png" alt="Lorem Robinson" class="testimonial-img">
+                            <h5>Lorem Robinson</h5>
+                            <span>Manager</span>
+                            <p>"Venenatis tellus in metus vulputate eu scelerisque felis. Velit euismod in pellentesque massa placerat duis."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <img src="./Images/per3.png" alt="Saddika Alard" class="testimonial-img">
+                            <h5>Saddika Alard</h5>
+                            <span>Team Leader</span>
+                            <p>"Venenatis tellus in metus vulputate eu scelerisque felis. Velit euismod in pellentesque massa placerat duis."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section class="section-padding">
+        <div class="container text-center">
+            <h2 class="section-title">Latest News</h2>
+            <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="news-card">
+                        <div class="news-img-container">
+                            <img src="./Images/latest1.png" alt="News 1">
+                            <div class="news-date"><span>10</span> Oct</div>
+                        </div>
+                        <div class="news-content text-start">
+                            <div class="news-meta">By Admin | 5 min</div>
+                            <a href="#" class="news-title">Urna pretium elit mauris cursus at elit Vestibulum.</a>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="news-card">
+                        <div class="news-img-container">
+                            <img src="./Images/latest2.png" alt="News 2">
+                            <div class="news-date"><span>09</span> Sep</div>
+                        </div>
+                        <div class="news-content text-start">
+                            <div class="news-meta">By Admin | 7 min</div>
+                            <a href="#" class="news-title">Best guide to Shopping for organic ingredients.</a>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="news-card">
+                        <div class="news-img-container">
+                            <img src="./Images/latest3.png" alt="News 3">
+                            <div class="news-date"><span>12</span> Oct</div>
+                        </div>
+                        <div class="news-content text-start">
+                            <div class="news-meta">By Admin | 3 min</div>
+                            <a href="#" class="news-title">Cursus at elit vestibulum urna pretium elit mauris.</a>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    
+   <footer class="footer-section">
+    <div class="container">
+        <div class="row">
+
+            <!-- Foodzy Info -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="logo-section d-flex align-items-center mb-3">
+                    
+                    <img src="./Images/Page 1 1.png" alt="Foodzy Logo" style="width: 40px; height: 40px; border-radius: 14px; margin-right: 10px;">
+                    <div>
+                        <div class="logo-text">Foodzy</div>
+                        <div class="tagline">A Treasure of Tastes</div>
+                    </div>
+                </div>
+                <p>FoodTrove is the biggest market of grocery products. Get your daily needs from our store.</p>
+                <div class="contact-info">
+                   
+                    <p><img src="./Images/List → Item.png" style="width: 20.48px; height: 24px; margin-right: 10px;"> 51 Green St. Huntington, NY, USA</p>
+                    <p><img src="./Images/List → Item (1).png" style="width: 20.48px; height: 24px; margin-right: 10px;"> example@email.com</p>
+                    <p><img src="./Images/List → Item (2).png" style="width: 20.48px; height: 24px; margin-right: 10px;"> +91 123 4567890</p>
+                </div>
+            </div>
+
+            
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h5>Company</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Delivery Information</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Privacy Policy</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Terms & Conditions</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Contact Us</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Support Center</a></li>
+                </ul>
+            </div>
+
+           
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h5>Category</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="#" class="nav-link">Dairy & Bakery</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Fruits & Vegetable</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Snack & Spice</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Juice & Drinks</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Chicken & Meat</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Fast Food</a></li>
+                </ul>
+            </div>
+
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h5>Subscribe Our Newsletter</h5>
+                <form class="position-relative mb-4 newsletter-form">
+                    <input type="email" class="form-control" placeholder="Search here...">
+                    <button type="submit" class="btn"><i class="fas fa-paper-plane"></i></button>
+                </form>
+                <div class="social-icons mb-4">
+                    
+                    <a href="#" target="_blank"><img src="./Images/146.png" alt="Facebook"></a>
+                    <a href="#" target="_blank"><img src="./Images/148.png" alt="twitter"></a>
+                    <a href="#" target="_blank"><img src="./Images/152.png" alt="Instagram"></a>
+                </div>
+                <div>
+                    
+                    <img src="./Images/18 →  → 1.jpg.png" alt="Gallery Image 1" class="gallery-img">
+                    <img src="./Images/18 →  → 2.jpg.png" alt="Gallery Image 2" class="gallery-img">
+                    <img src="./Images/18 →  → 3.jpg.png" alt="Gallery Image 3" class="gallery-img">
+                    <img src="./Images/18 →  → 4.jpg.png" alt="Gallery Image 4" class="gallery-img">
+                    <img src="./Images/18 →  → 5.jpg.png" alt="Gallery Image 5" class="gallery-img">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom text-center">
+            <p>&copy; 2025 <a href="#">foodzy</a>, All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+    <script src="JS/script.js"></script>
+    
+    <script src="./JS/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

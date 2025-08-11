@@ -11,7 +11,6 @@
 //     {magproducturl:'./Images/12.jpg.png', categoryproduct:'bakery', p:'Whole grain bread nutritious choice', salary:'$22', old_salary:'$25.10', rating:4.7, nameproduct:'whole grain'}
 // ];
 
-// Get products from localStorage with fallback
 let arrproduct;
 try {
     arrproduct = JSON.parse(localStorage.getItem("productsArr")) || defaultProducts;
@@ -22,12 +21,10 @@ try {
 
 console.log('arrproduct', arrproduct);
 
-// Pagination variables
 let currentPage = 1;
 let itemsPerPage = 6;
 let currentProducts = arrproduct;
 
-// Mobile Menu Toggle
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -38,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Search functionality
+    
     const searchBtn = document.querySelector('.search-btn');
     const searchInput = document.querySelector('.search-bar input');
     
@@ -59,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Order button functionality
     const orderBtn = document.querySelector('.order-btn');
     if (orderBtn) {
         orderBtn.addEventListener('click', function() {
@@ -70,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Navigation links active state
     const navLinksItems = document.querySelectorAll('.nav-links a');
     navLinksItems.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -79,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Navbar scroll effect
+    
     let lastScrollTop = 0;
     const navbar = document.querySelector('.navbar');
     
@@ -99,10 +94,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Hero section animations
+   
     animateHeroElements();
 
-    // Action items hover effects
+   
     const actionItems = document.querySelectorAll('.action-item');
     actionItems.forEach(item => {
         item.addEventListener('mouseenter', function() {
@@ -114,11 +109,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Initialize products display
+   
     initializeProducts();
 });
 
-// Hero section animation function
+
 function animateHeroElements() {
     const heroTitle = document.querySelector('.hero-title');
     const heroSubtitle = document.querySelector('.hero-subtitle');
@@ -262,18 +257,20 @@ function displayProducts(productsArray = arrproduct) {
         productHTML = '<div class="col-12"><p class="text-center">No products found.</p></div>';
     } else {
         paginatedProducts.forEach(product => {
-            const imageUrl = product.magproducturl || './Images/placeholder.jpg';
+            
+            
+            const imageUrl = product?.magproducturl 
             const category = product.categoryproduct || 'Unknown';
             const title = product.nameproduct || product.p || 'Unknown Product';
             const description = product.p || '';
             const price = product.salary || '$0';
             const oldPrice = product.old_salary || '';
             const rating = product.rating || 0;
-
+            
             productHTML += `
                 <div class="col-lg-4 col-md-6 ">
                     <div class="product-card">
-                        <img src="${imageUrl}" alt="${title}" loading="lazy" onerror="this.src='./Images/placeholder.jpg'">
+                        <img src="${imageUrl}" alt="${title}" >
                         <div class="product-category">${category}</div>
                         <div class="rating-stars">${renderStars(rating)}</div>
                         <h3 class="product-title">${title}</h3>

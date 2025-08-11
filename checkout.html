@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Checkout</title>
+<style>
+  .checkout-summary {
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 300px;
+    margin-bottom: 20px;
+  }
+  .product-summary > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .product-summary img {
+    margin-right: 10px;
+  }
+</style>
+</head>
+<body>
+
+  <h1>Checkout</h1>
+
+  <div class="checkout-summary" id="checkout-summary">
+    <h4>Summary</h4>
+    <p><strong>Sub Total:</strong> $<span id="subtotal">0.00</span></p>
+    <p><strong>Delivery Charges:</strong> $<span id="delivery">0.00</span></p>
+    <p><strong>Total Amount:</strong> $<span id="total">0.00</span></p>
+
+    <div class="product-summary" id="product-summary"></div>
+  </div>
+
+  <form id="checkoutForm">
+    <h3>Billing Details</h3>
+    <input type="text" name="firstName" placeholder="First Name" required /><br/>
+    <input type="text" name="lastName" placeholder="Last Name" required /><br/>
+    <input type="text" name="address" placeholder="Address" required /><br/>
+    <input type="text" name="city" placeholder="City" required /><br/>
+    <input type="text" name="postcode" placeholder="Post Code" required /><br/>
+    <select name="country" required>
+      <option value="">Country</option>
+      <option value="egypt">Egypt</option>
+      <option value="ksa">KSA</option>
+    </select><br/>
+    <select name="region" required>
+      <option value="">Region/State</option>
+      <option value="cairo">Cairo</option>
+      <option value="giza">Giza</option>
+    </select><br/>
+
+    <h3>Payment Method</h3>
+    <label><input type="radio" name="payment" value="cod" checked /> Cash on Delivery</label><br/>
+    <label><input type="radio" name="payment" value="card" /> Credit Card</label><br/>
+    <label><input type="radio" name="payment" value="bank" /> Bank Transfer</label><br/>
+
+    <button type="submit" id="place-order-btn">Place Order</button>
+  </form>
+
+<script>
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const productSummary = document.getElementById('product-summary');
+  let subtotal = 0;
+
+  if(cart.length === 0){
+    productSummary.innerHTML = "<p>Your cart is empty.</p>";
+  } else {
+    cart.forEach(item => {
+      const priceNum = parseFloat(item.price.toString().replace(/[^0-9.]/g, "")) || 0;
+      const qty = parseInt(item.quantity) || 1;
+      const totalPrice = priceNum * qty;
+      subtotal += totalPrice;
+
+      productSummary.insertAdjacentHTML('beforeend', `
+        <div>
+          <img src="${item.image}" alt="${item.name}" width="50" height="50"/>
+          <div>
+            <p>${item.name} (x${qty})</p>
+            <p>$${totalPrice.toFixed(2)}</p>
+          </div>
+        </div>
+      `);
+    });
+  }
+
+  const deliveryCharge = 0;
+  const totalAmount = subtotal + deliveryCharge;
+
+  document.getElementById('subtotal').textContent = subtotal.toFixed(2);
+  document.getElementById('delivery').textContent = deliveryCharge.toFixed(2);
+  document.getElementById('total').textContent = totalAmount.toFixed(2);
+
+  // لما المستخدم يضغط على Place Order
+  document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // منع الإرسال العادي
+    localStorage.removeItem('cart'); // مسح السلة
+    window.location.href = 'thank.html'; // الانتقال لصفحة الشكر
+  });
+</script>
+
+</body>
+</html>

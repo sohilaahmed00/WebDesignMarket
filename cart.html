@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shopping Cart</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+    header {
+      background: #fff;
+      border-bottom: 2px solid #eee;
+    }
+    header .logo {
+      display: flex;
+      align-items: center;
+    }
+    header .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    header .search-form {
+      flex: 1;
+      display: flex;
+      margin: 0 20px;
+    }
+    header .search-form input,
+    header .search-form select {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    header .search-form select {
+      border-left: none;
+    }
+    header .search-form button {
+      padding: 8px 15px;
+      background: red;
+      color: white;
+      border: none;
+    }
+    header .top-links {
+      display: flex;
+      gap: 15px;
+      font-size: 14px;
+    }
+    .breadcrumb-bar {
+      background: red;
+      color: white;
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+    .cart-table {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
+    .product-img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-right: 10px;
+    }
+    .qty-input {
+      width: 60px;
+      text-align: center;
+      margin: 0 10px;
+    }
+    .btn-remove {
+      background: none;
+      border: none;
+      color: #999;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .btn-remove:hover {
+      color: #dc3545;
+    }
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .btn-checkout {
+      background-color: #ff4b3e;
+      border: none;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn-checkout:hover {
+      background-color: #e04339;
+    }
+    .continue-shopping {
+      color: #555;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px;">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="image1.png" alt="Foodey Logo">
+      <span style="font-size: 18px; font-weight: bold;">Foodey</span>
+    </div>
+    <!-- Search -->
+    <form onsubmit="doSearch(event)" class="search-form">
+      <input id="searchInput" type="text" placeholder="Search for items...">
+      <select>
+        <option>All Categories</option>
+      </select>
+      <button type="submit">🔍</button>
+    </form>
+    <!-- Icons -->
+    <div class="top-links">
+      <a href="#">Account</a>
+      <a href="#">Wishlist</a>
+      <a href="cart.html">Cart</a>
+    </div>
+  </div>
+  <!-- Breadcrumb -->
+  <div class="breadcrumb-bar">
+    Home / Cart
+  </div>
+</header>
+
+<div class="container">
+  <h2 class="mb-4">Shopping cart</h2>
+  <table class="table cart-table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="cart-items"></tbody>
+  </table>
+  <div class="actions">
+    <a href="index.html" class="continue-shopping">Continue shopping</a>
+<a href="checkout.html" class="btn-checkout">Checkout</a>
+
+  </div>
+</div>
+
+<script>
+let cart = [];
+const cartItemsContainer = document.getElementById('cart-items');
+
+function renderCart() {
+  cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cartItemsContainer.innerHTML = '';
+
+  if(cart.length === 0){
+    cartItemsContainer.innerHTML = '<tr><td colspan="5" class="text-center">Cart is empty</td></tr>';
+    return;
+  }
+
+  cart.forEach((item, index) => {
+    let priceNum = parseFloat(item.price.toString().replace(/[^0-9.-]+/g,"")) || 0;
+    const total = (priceNum * item.quantity).toFixed(2);
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="d-flex align-items-center">
+        <img src="${item.image}" alt="${item.name}" class="product-img" />
+        <span>${item.name}</span>
+      </td>
+      <td>$${priceNum.toFixed(2)}</td>
+      <td>
+        <button class="btn btn-sm btn-outline-secondary decrease-qty" data-index="${index}">-</button>
+        <input type="text" class="qty-input" value="${item.quantity}" data-index="${index}" />
+        <button class="btn btn-sm btn-outline-secondary increase-qty" data-index="${index}">+</button>
+      </td>
+      <td>$${total}</td>
+      <td><button class="btn-remove" data-index="${index}" title="Delete">&#128465;</button></td>
+    `;
+    cartItemsContainer.appendChild(tr);
+  });
+}
+
+renderCart();
+
+cartItemsContainer.addEventListener('input', function(e){
+  if(e.target.classList.contains('qty-input')){
+    const index = e.target.dataset.index;
+    let val = parseInt(e.target.value);
+    if(isNaN(val) || val < 1) val = 1;
+    cart[index].quantity = val;
+    localStorage.setItem('cart', JSON.stringify(cart));
+    renderCart();
+  }
+});
+
+cartItemsContainer.addEventListener('click', function(e){
+  const index = e.target.dataset.index;
+  if(e.target.classList.contains('increase-qty')){
+    cart[index].quantity++;
+    localStorage.setItem('cart', JSON.stringify(cart));
+    renderCart();
+  }
+  if(e.target.classList.contains('decrease-qty')){
+    if(cart[index].quantity > 1){
+      cart[index].quantity--;
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+  }
+  if(e.target.classList.contains('btn-remove')){
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    renderCart();
+  }
+});
+
+function checkout() {
+  if(cart.length === 0){
+    alert('The basket is empty');
+    return;
+  }
+  localStorage.removeItem('cart'); 
+  window.location.href = 'thank.html';
+}
+
+// Search filter
+function doSearch(e) {
+  e.preventDefault();
+  const query = document.getElementById('searchInput').value.trim().toLowerCase();
+
+  const rows = cartItemsContainer.querySelectorAll('tr');
+  rows.forEach(row => {
+    const nameCell = row.querySelector('td span');
+    if(nameCell) {
+      const productName = nameCell.textContent.toLowerCase();
+      row.style.display = productName.includes(query) ? '' : 'none';
+    }
+  });
+}
+</script>
+
+</body>
+</html>

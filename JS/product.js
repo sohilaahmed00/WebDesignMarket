@@ -28,7 +28,7 @@ function products(array = arrproduct) {
     for (let i = 0; i < array.length; i++) {
         emp += `
             <div class="img w-auto" style="background-color:white; margin:5px; border: 3px #E9E9E9 solid;">
-                <img src="${array[i].imagproducturl}" style="padding:13px; width: 280px; height: 280px;">
+                <img src="${array[i].magproducturl}" style="padding:13px; width: 280px; height: 280px;">
                 <h6 class="text-center" style="color: #777777;">${array[i].categoryproduct}</h6>
                 <p style="text-align: center;">${array[i].nameproduct}</p>
                 <div class="text-center stars-container">
@@ -37,7 +37,7 @@ function products(array = arrproduct) {
                     <i class="fa-regular fa-star" onclick="starclick(this)"></i>
                     <i class="fa-regular fa-star" onclick="starclick(this)"></i>
                 </div>
-                <p class="text-center" style="font-weight: bold;">${array[i].paragraph}</p>
+                <p class="text-center" style="font-weight: bold;">${array[i].p}</p>
                 <div id="button" class="d-flex justify-content-between">
                     <p style="color: red; font-weight: 700; margin-left:50px;">${array[i].salary}</p>
                     <button onclick="goToDetails('${i}')" style="color:white; background-color: red; width: 85px; height: 36px; border-radius: 4px; border: red;">Details</button>
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (detailsContainer) {
         detailsContainer.innerHTML = `
         <div class="images "  style="background-color: #F7F7F8; height:350px" >
-            <img   src="${product.imagproducturl}" id="mainimage" style = "height:350px">            
+            <img   src="${product.magproducturl}" id="mainimage" style = "height:350px">            
         </div>
         <div style="width: 500px;"  >
             <h6 style="text-align:center;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: 22px;">${product.head}</h6>

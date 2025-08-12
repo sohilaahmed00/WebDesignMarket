@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="./css/nav.css">
+  <link rel="stylesheet" href="./css/footer.css">
+
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background:white;
+  color: #333;
+}
+
+
+
+
+.contact-container {
+  max-width: 600px;
+  max-height: max-content;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background: red;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: red;
+}
+
+#statusMsg {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+    </style>
+</head>
+<body>
+    
+
+
+<!--Nav-->
+<nav class="navbar">
+        <div class="nav-container">
+            <!-- Top Navigation -->
+            <div class="nav-top">
+                <div class="nav-left">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul class="nav-links">
+                        <li><a href="index.html" class="nav-link-item">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link-item">Category <i class="fas fa-chevron-down"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="product.html" class="nav-link-item">Products <i class="fas fa-chevron-down"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link-item">Pages <i class="fas fa-chevron-down"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="blogdetails.html" class="nav-link-item">Blog <i class="fas fa-chevron-down"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link-item">Elements <i class="fas fa-chevron-down"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-right">
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>+123 (456) (7890)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-bottom">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <div class="chef-icon">
+                            <img src="Images/Page-1 1.png" alt="logo" class="chef-image">
+                        </div>
+                    </div>
+                    <div class="logo-text">
+                        <h2>Foodzy</h2>
+                        <p>A Treasure of Tastes</p>
+                    </div>
+                </div>
+
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for items...">
+                    <select class="category-select">
+                        <option>All Categories</option>
+                        <option>Pizza</option>
+                        <option>Burgers</option>
+                        <option>Pasta</option>
+                    </select>
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+
+                <div class="nav-actions">
+                    <a href="login.html" class="action-item">
+                        <i class="fas fa-user"></i>
+                        <span>Account</span>
+                    </a>
+                    <a href="register.html" class="action-item">
+                        <i class="fas fa-login"></i>
+                        <span>Signup</span>
+                    </a>
+                    <a href="cart.html" class="action-item">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Cart</span>
+                    </a>
+                </div>
+            </div>
+           
+        </div>
+        
+    </nav>
+
+<div class="Home-product d-flex justify-content-evenly flex-wrap" style="height: 50px; background-color: red; color: white;">
+<p style="margin-top: 10px;">Contact Us</p>
+<p style="margin-left: 1000px; margin-top: 10px;">Home-Contact Us</p>
+</div>
+
+<!--contant-->
+    <div class="container d-flex flex-wrap col justify-content-evenly " style="margin-top: 30px;">
+    <div class="contact-container col-md-5">
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="5" placeholder="Write your message" required></textarea>
+        </div>
+
+        <button type="submit">Send Message</button>
+        <p id="statusMsg"></p>
+      </form>
+    </div>
+    <div class="image col-md-5">
+      <img src="./Images/div.banner-img.png" style="width: 540px; max-height: 540px;">
+    </div>
+    </div>
+
+<br> <br> <br>
+
+  <!-- footer-->
+  
+     <footer class="footer-section">
+    <div class="container">
+        <div class="row">
+
+            <!-- Foodzy Info -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="logo-section d-flex align-items-center mb-3">
+                    
+                    <img src="./Images/Page 1 1.png" alt="Foodzy Logo" style="width: 40px; height: 40px; border-radius: 14px; margin-right: 10px;">
+                    <div>
+                        <div class="logo-text">Foodzy</div>
+                        <div class="tagline">A Treasure of Tastes</div>
+                    </div>
+                </div>
+                <p>FoodTrove is the biggest market of grocery products. Get your daily needs from our store.</p>
+                <div class="contact-info">
+                   
+                    <p><img src="./Images/List → Item.png" style="width: 20.48px; height: 24px; margin-right: 10px;"> 51 Green St. Huntington, NY, USA</p>
+                    <p><img src="./Images/List → Item (1).png" style="width: 20.48px; height: 24px; margin-right: 10px;"> example@email.com</p>
+                    <p><img src="./Images/List → Item (2).png" style="width: 20.48px; height: 24px; margin-right: 10px;"> +91 123 4567890</p>
+                </div>
+            </div>
+
+            
+            <div class="col-lg-2 col-md-6 mb-4" id="Company">
+                <h5>Company</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Delivery Information</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Privacy Policy</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Terms & Conditions</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Contact Us</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Support Center</a></li>
+                </ul>
+            </div>
+
+           
+            <div class="col-lg-2 col-md-6 mb-4" id="Category">
+                <h5>Category </h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="#" class="nav-link">Dairy & Bakery</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Fruits & Vegetable</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Snack & Spice</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Juice & Drinks</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Chicken & Meat</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Fast Food</a></li>
+                </ul>
+            </div>
+
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h5>Subscribe Our Newsletter</h5>
+                <form class="position-relative mb-4 newsletter-form">
+                    <input type="email" class="form-control" placeholder="Search here...">
+                    <button type="submit" class="btn"><i class="fas fa-paper-plane"></i></button>
+                </form>
+                <div class="social-icons mb-4">
+                    
+                    <a href="#" target="_blank"><img src="./Images/146.png" alt="Facebook"></a>
+                    <a href="#" target="_blank"><img src="./Images/148.png" alt="twitter"></a>
+                    <a href="#" target="_blank"><img src="./Images/152.png" alt="Instagram"></a>
+                </div>
+                <div>
+                    
+                    <img src="./Images/18 →  → 1.jpg.png" alt="Gallery Image 1" class="gallery-img">
+                    <img src="./Images/18 →  → 2.jpg.png" alt="Gallery Image 2" class="gallery-img">
+                    <img src="./Images/18 →  → 3.jpg.png" alt="Gallery Image 3" class="gallery-img">
+                    <img src="./Images/18 →  → 4.jpg.png" alt="Gallery Image 4" class="gallery-img">
+                    <img src="./Images/18 →  → 5.jpg.png" alt="Gallery Image 5" class="gallery-img">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom text-center">
+            <p>&copy; 2025 <a href="#">foodzy</a>, All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent page reload
+
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let message = document.getElementById("message").value.trim();
+  let statusMsg = document.getElementById("statusMsg");
+
+  if (name === "" || email === "" || message === "") {
+    statusMsg.style.color = "red";
+    statusMsg.textContent = "Please fill out all fields.";
+    return;
+  }
+
+  if (!/\S+@\S+\.\S+/.test(email)) {
+    statusMsg.style.color = "red";
+    statusMsg.textContent = "Please enter a valid email.";
+    return;
+  }
+
+  statusMsg.style.color = "green";
+  statusMsg.textContent = "Your message has been sent successfully!";
+  
+  // Clear the form
+  document.getElementById("contactForm").reset();
+});
+
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="./JS/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+</body>
+</html>

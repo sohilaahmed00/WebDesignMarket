@@ -1,0 +1,141 @@
+body {
+  background-color:#f8f9fa;
+  padding: 20px;
+}
+
+
+
+/* Header */
+header {
+  background: #fff;
+  border-bottom: 2px solid #eee;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+header .search-form {
+  flex: 1;
+  display: flex;
+  margin: 0 20px;
+}
+
+header .search-form input,
+header .search-form select {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+header .search-form select {
+  border-left: none;
+}
+
+header .search-form button {
+  padding: 8px 15px;
+  background: red;
+  color: white;
+  border: none;
+}
+
+header .top-links {
+  display: flex;
+  gap: 15px;
+  font-size: 14px;
+}
+
+/* Breadcrumb */
+.breadcrumb-bar {
+  background: red;
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+/* Cart Table */
+.cart-table {
+  background: #F7F7F8;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
+.cart-table thead {
+  background-color: #E9E9E9;
+}
+
+.cart-table td {
+  vertical-align: middle;
+}
+
+.product-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+
+/* Quantity Controls */
+.qty-input {
+  width: 60px;
+  text-align: center;
+  margin: 0 10px;
+}
+
+.quantity-btn {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-btn button {
+  border: 1px solid #ddd;
+  background: white;
+  padding: 2px 8px;
+}
+
+/* Remove Button */
+.btn-remove {
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.btn-remove:hover {
+  color: #dc3545;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.btn-checkout {
+  background-color: #ff4b3e;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-checkout:hover {
+  background-color: #e04339;
+}
+
+.continue-shopping {
+  color: #555;
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -1,22 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-<link rel="stylesheet" href="./css/nav.css">
-    <link rel="stylesheet" href="./css/styleproduct.css">
-    <link rel="stylesheet" href="./css/footer.css">
-   
-    <title>Document</title>
+ 
+  <link rel="stylesheet" href="./css/nav.css">
+  <link rel="stylesheet" href="./css/footer.css">
+  <title>Delivery Information - Online Marketplace</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      background: #f8f9fa;
+      color: #333;
+    }
+
+    
+
+    h2 {
+      color: red;
+      margin-top: 30px;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    ul {
+      margin-bottom: 15px;
+      padding-left: 20px;
+    }
+
+    
+  </style>
 </head>
 <body>
 
-
-   <!-- Navigation Bar -->
-    <nav class="navbar">
+<!--Nav-->
+<nav class="navbar">
         <div class="nav-container">
             <!-- Top Navigation -->
             <div class="nav-top">
@@ -98,105 +122,68 @@
     </nav>
 
 <div class="Home-product d-flex justify-content-evenly flex-wrap" style="height: 50px; background-color: red; color: white;">
-<p style="margin-top: 10px;">product</p>
-<p style="margin-left: 1000px; margin-top: 10px;">Home-product</p>
+<p style="margin-top: 10px;">Delivery Information</p>
+<p style="margin-left: 1000px; margin-top: 10px;">Home-Delivery Information</p>
 </div>
-<!-- Container -->
-
-<div class="container d-flex col justify-content-evenly">
-    <div class="filter" style="align-items: center;"  >
-        <p style=" margin-top: 1px;font-weight: 500;">Product Category</p>
-        <input type="checkbox" id="vegetablefilter" name="vegetables" value="vegetables" class="category-filter">
-        <label for="vegetables"> vegetables</label><br>
-        <input type="checkbox" id="Drinkfilter" name="Bakery" value="Bakery" class="category-filter">
-        <label for="Bakery"> Bakery</label><br>
-        <input type="checkbox" id="Snacksfilter" name="snakes" value="snakes" class="category-filter">
-        <label for="snakes"> snacks</label><br>
-        <input type="checkbox" id="fruitsfilter" name="fruits" value="fruits" class="category-filter">
-        <label for="fruits"> fruits</label><br>
-    
-    </div>
 
 
+  <div class="container">
+    <section id="shipping-methods">
+      <h2>1. Shipping Methods</h2>
+      <p>
+        We partner with trusted courier services to deliver your orders safely and on time. Depending on your location and the products ordered, we offer:
+      </p>
+      <ul>
+        <li>Standard Delivery</li>
+        <li>Express Delivery</li>
+        <li>Same-Day Delivery (available in select areas)</li>
+      </ul>
+    </section>
 
+    <section id="delivery-times">
+      <h2>2. Delivery Times</h2>
+      <p>
+        Delivery times vary depending on your location and the shipping method selected:
+      </p>
+      <ul>
+        <li><strong>Standard Delivery:</strong> 3–7 business days</li>
+        <li><strong>Express Delivery:</strong> 1–3 business days</li>
+        <li><strong>Same-Day Delivery:</strong> Orders placed before 12 PM in eligible areas</li>
+      </ul>
+      <p>
+        Please note that delivery times may be affected by holidays, high demand periods, or unforeseen courier delays.
+      </p>
+    </section>
 
-<div class="container " style="width: 1320px;">
-<!--search-->
-<div class="search w-100 " >
-<input id="searchproduct" placeholder="items for you" class="w-100 " style="border-radius: 5px; background-color: #E9E9E9;"><br></div>
+    <section id="costs">
+      <h2>3. Delivery Costs</h2>
+      <p>
+        Delivery costs depend on your location, the size/weight of your order, and the selected shipping method. The total delivery fee will be calculated at checkout.
+      </p>
+      <p>
+        Free delivery may be available for orders above a certain value, as indicated in our promotions.
+      </p>
+    </section>
 
-<!--slides -->
-<div id="carouselExampleDark" class="carousel carousel-dark slide data-bs-ride=false">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <section id="tracking">
+      <h2>4. Order Tracking</h2>
+      <p>
+        Once your order is dispatched, you will receive a confirmation email with a tracking link so you can monitor your delivery in real-time.
+      </p>
+    </section>
+
+    <section id="international">
+      <h2>5. International Delivery</h2>
+      <p>
+        We ship to multiple countries worldwide. International delivery times vary between 7–21 business days depending on the destination and customs processing.
+      </p>
+      <p>
+        Customers are responsible for any applicable customs duties, taxes, or import fees.
+      </p>
+    </section>
   </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active data-bs-ride=false" >
-     
-      <!-- products-->
-      <div class="d-flex flex-wrap col-md-3 w-auto   justify-content-evenly"  style="margin: 10px; padding: 5px; background-color:transparent; margin: 50px; " id="product">
-  <!--<div class="img w-auto " style="background-color:white ;border-radius: 1px; margin:5px  "> <img src="./Images/1.jpg.png" style="padding:13px ; width: 280px; height: 280px; " id="productimg" ><h6 class="text-center" style="color: #777777;">Vegetales</h6>
-   <div class="text-center" id="productfont"> <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i></div> 
-    <p class="text-center" style=" font-weight: bold;">  Fresh organic villa farm lomon<br> 500gm pack</p>
-    <p style="color: red; font-weight: 700; font-weight: bold;" class="text-center "> $120</p> 
-   
-</div> -->
-      </div>
 
-    </div>
-    <div class="carousel-item data-bs-ride=false" >
-     
-       <!-- products2-->
-       <div class="d-flex flex-wrap col-md-3 w-auto   justify-content-evenly"  style="margin: 10px; padding: 5px; background-color:transparent; margin: 50px; " id="product2">
-  <!--<div class="img w-auto " style="background-color:white ;border-radius: 1px; margin:5px  "> <img src="./Images/1.jpg.png" style="padding:13px ; width: 280px; height: 280px;" id="productimg" ><h6 class="text-center" style="color: #777777;">Vegetales</h6>
-   <div class="text-center" id="productfont"> <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i></div> 
-    <p class="text-center" style=" font-weight: bold;">  Fresh organic villa farm lomon<br> 500gm pack</p>
-    <p style="color: red; font-weight: 700; font-weight: bold;" class="text-center "> $120</p>
-   
-</div> -->
-       </div>
-
-    </div> 
-    <div class="carousel-item data-bs-ride=false">
-    
-        <!-- products3-->
-      <div class="d-flex flex-wrap col-md-3 w-auto   justify-content-evenly"  style="margin: 10px; padding: 5px; background-color:transparent; margin: 50px; " id="product3">
-  <!--<div class="img w-auto " style="background-color:white ;border-radius: 1px; margin:5px  "> <img src="./Images/1.jpg.png" style="padding:13px ; width: 280px; height: 280px;" id="productimg" ><h6 class="text-center" style="color: #777777;">Vegetales</h6>
-   <div class="text-center" id="productfont"> <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i></div> 
-    <p class="text-center" style=" font-weight: bold;">  Fresh organic villa farm lomon<br> 500gm pack</p>
-    <p style="color: red; font-weight: 700; font-weight: bold;" class="text-center "> $120</p>
-   
-</div> -->
-       </div>
-
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
-</div>
-
-</div>
-
- <!-- Footer -->
+   <!-- Footer -->
    <footer class="footer-section">
     <div class="container">
         <div class="row">
@@ -277,8 +264,10 @@
     </div>
 </footer>
 
-<script src="./JS/all.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-<script src="./JS/product.js"></script>
-</bod
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="./JS/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>

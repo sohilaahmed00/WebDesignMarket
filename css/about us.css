@@ -1,0 +1,108 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #fff;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Section Container */
+.about-section {
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Flex layout for text and image */
+.about-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Text Content */
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+/* Stats Box */
+.stats {
+    display: flex;
+    background: #f8f8f8;
+    border-radius: 10px;
+    padding: 20px;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f44336;
+    display: block;
+}
+
+.stat-label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Image */
+.about-image img {
+    max-width: 500px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Service Cards */
+.services {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.service-card {
+    flex: 1;
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.service-card h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+.service-card:hover {
+    background: #eaeaea;
+}

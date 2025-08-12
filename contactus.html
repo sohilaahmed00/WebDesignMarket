@@ -1,22 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-<link rel="stylesheet" href="./css/nav.css">
-    <link rel="stylesheet" href="./css/styleproduct.css">
-    <link rel="stylesheet" href="./css/footer.css">
-   
-    <title>Document</title>
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="./css/nav.css">
+  <link rel="stylesheet" href="./css/footer.css">
+
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background:white;
+  color: #333;
+}
+
+
+
+
+.contact-container {
+  max-width: 600px;
+  max-height: max-content;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background: red;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: red;
+}
+
+#statusMsg {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+    </style>
 </head>
 <body>
+    
 
 
-   <!-- Navigation Bar -->
-    <nav class="navbar">
+<!--Nav-->
+<nav class="navbar">
         <div class="nav-container">
             <!-- Top Navigation -->
             <div class="nav-top">
@@ -98,105 +161,41 @@
     </nav>
 
 <div class="Home-product d-flex justify-content-evenly flex-wrap" style="height: 50px; background-color: red; color: white;">
-<p style="margin-top: 10px;">product</p>
-<p style="margin-left: 1000px; margin-top: 10px;">Home-product</p>
+<p style="margin-top: 10px;">Contact Us</p>
+<p style="margin-left: 1000px; margin-top: 10px;">Home-Contact Us</p>
 </div>
-<!-- Container -->
 
-<div class="container d-flex col justify-content-evenly">
-    <div class="filter" style="align-items: center;"  >
-        <p style=" margin-top: 1px;font-weight: 500;">Product Category</p>
-        <input type="checkbox" id="vegetablefilter" name="vegetables" value="vegetables" class="category-filter">
-        <label for="vegetables"> vegetables</label><br>
-        <input type="checkbox" id="Drinkfilter" name="Bakery" value="Bakery" class="category-filter">
-        <label for="Bakery"> Bakery</label><br>
-        <input type="checkbox" id="Snacksfilter" name="snakes" value="snakes" class="category-filter">
-        <label for="snakes"> snacks</label><br>
-        <input type="checkbox" id="fruitsfilter" name="fruits" value="fruits" class="category-filter">
-        <label for="fruits"> fruits</label><br>
-    
+<!--contant-->
+    <div class="container d-flex flex-wrap col justify-content-evenly " style="margin-top: 30px;">
+    <div class="contact-container col-md-5">
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="5" placeholder="Write your message" required></textarea>
+        </div>
+
+        <button type="submit">Send Message</button>
+        <p id="statusMsg"></p>
+      </form>
+    </div>
+    <div class="image col-md-5">
+      <img src="./Images/div.banner-img.png" style="width: 540px; max-height: 540px;">
+    </div>
     </div>
 
+<br> <br> <br>
 
-
-
-<div class="container " style="width: 1320px;">
-<!--search-->
-<div class="search w-100 " >
-<input id="searchproduct" placeholder="items for you" class="w-100 " style="border-radius: 5px; background-color: #E9E9E9;"><br></div>
-
-<!--slides -->
-<div id="carouselExampleDark" class="carousel carousel-dark slide data-bs-ride=false">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active data-bs-ride=false" >
-     
-      <!-- products-->
-      <div class="d-flex flex-wrap col-md-3 w-auto   justify-content-evenly"  style="margin: 10px; padding: 5px; background-color:transparent; margin: 50px; " id="product">
-  <!--<div class="img w-auto " style="background-color:white ;border-radius: 1px; margin:5px  "> <img src="./Images/1.jpg.png" style="padding:13px ; width: 280px; height: 280px; " id="productimg" ><h6 class="text-center" style="color: #777777;">Vegetales</h6>
-   <div class="text-center" id="productfont"> <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i></div> 
-    <p class="text-center" style=" font-weight: bold;">  Fresh organic villa farm lomon<br> 500gm pack</p>
-    <p style="color: red; font-weight: 700; font-weight: bold;" class="text-center "> $120</p> 
-   
-</div> -->
-      </div>
-
-    </div>
-    <div class="carousel-item data-bs-ride=false" >
-     
-       <!-- products2-->
-       <div class="d-flex flex-wrap col-md-3 w-auto   justify-content-evenly"  style="margin: 10px; padding: 5px; background-color:transparent; margin: 50px; " id="product2">
-  <!--<div class="img w-auto " style="background-color:white ;border-radius: 1px; margin:5px  "> <img src="./Images/1.jpg.png" style="padding:13px ; width: 280px; height: 280px;" id="productimg" ><h6 class="text-center" style="color: #777777;">Vegetales</h6>
-   <div class="text-center" id="productfont"> <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i></div> 
-    <p class="text-center" style=" font-weight: bold;">  Fresh organic villa farm lomon<br> 500gm pack</p>
-    <p style="color: red; font-weight: 700; font-weight: bold;" class="text-center "> $120</p>
-   
-</div> -->
-       </div>
-
-    </div> 
-    <div class="carousel-item data-bs-ride=false">
-    
-        <!-- products3-->
-      <div class="d-flex flex-wrap col-md-3 w-auto   justify-content-evenly"  style="margin: 10px; padding: 5px; background-color:transparent; margin: 50px; " id="product3">
-  <!--<div class="img w-auto " style="background-color:white ;border-radius: 1px; margin:5px  "> <img src="./Images/1.jpg.png" style="padding:13px ; width: 280px; height: 280px;" id="productimg" ><h6 class="text-center" style="color: #777777;">Vegetales</h6>
-   <div class="text-center" id="productfont"> <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i></div> 
-    <p class="text-center" style=" font-weight: bold;">  Fresh organic villa farm lomon<br> 500gm pack</p>
-    <p style="color: red; font-weight: 700; font-weight: bold;" class="text-center "> $120</p>
-   
-</div> -->
-       </div>
-
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
-</div>
-
-</div>
-
- <!-- Footer -->
+  <!-- Footer -->
    <footer class="footer-section">
     <div class="container">
         <div class="row">
@@ -277,8 +276,40 @@
     </div>
 </footer>
 
-<script src="./JS/all.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent page reload
 
-<script src="./JS/product.js"></script>
-</bod
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let message = document.getElementById("message").value.trim();
+  let statusMsg = document.getElementById("statusMsg");
+
+  if (name === "" || email === "" || message === "") {
+    statusMsg.style.color = "red";
+    statusMsg.textContent = "Please fill out all fields.";
+    return;
+  }
+
+  if (!/\S+@\S+\.\S+/.test(email)) {
+    statusMsg.style.color = "red";
+    statusMsg.textContent = "Please enter a valid email.";
+    return;
+  }
+
+  statusMsg.style.color = "green";
+  statusMsg.textContent = "Your message has been sent successfully!";
+  
+  // Clear the form
+  document.getElementById("contactForm").reset();
+});
+
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="./JS/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+</body>
+</html>

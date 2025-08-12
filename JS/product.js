@@ -10,22 +10,14 @@ detailsbutton --> id="productetails"
 
 
 
+try {
+   var  arrproduct = JSON.parse(localStorage.getItem("productsArr")) || defaultProducts;
+} catch (error) {
+    console.log('localStorage not available, using default products');
+    arrproduct = defaultProducts;
+}
 
 
-let arrproduct=[
-    {id:'lemon',imagproducturl:'./Images/1.jpg.png', categoryproduct:'vegetables',paragraph:'Fresh organic villa farm lomon<br> 500gm pack' , salary:'$120',nameproduct: 'Fresh Organic Lemon',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
-   {id:'apple',imagproducturl:'./Images/2.jpg.png', categoryproduct:'snakes',paragraph:'Best snakes with hazel nut pack <br>200gm',salary:'$145',nameproduct: 'fresh apple',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'fg',Weight:'100g',Info:'Egg Free, Allergen-Free'},
-   {id:'cake',imagproducturl:'./Images/3.jpg.png', categoryproduct:'fruits',paragraph:'Fresh organic apple 1kg simla<br>marming',salary:'$120',nameproduct:'sweet cake',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'ewr',Weight:'100g',Info:'Egg Free, Allergen-Free'},
-   {id:'chocolate',imagproducturl:'./Images/9.jpg.png', categoryproduct:'fruits',paragraph:'Organic fresh venila farm<br>watermelon 5kg',salary:'$50.30',nameproduct:'chocalate',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'erewrf',Weight:'100g',Info:'Egg Free, Allergen-Free'},
-   {imagproducturl:'./Images/10.jpg.png', categoryproduct:'snacks',paragraph:'Sweet crunchy nut mix 250gm<br>pack,salary',salary:'$120.30',nameproduct:'crunchy nut',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'hytgf',Weight:'100g',Info:'Egg Free, Allergen-Free'},
-   {imagproducturl:'./Images/17.jpg.png', categoryproduct:'Bakery',paragraph:'Delicious white baked fresh bread<br>and toast',salary:'$20',nameproduct:'toast',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
-   {imagproducturl:'./Images/13.jpg.png', categoryproduct:'Bakery',paragraph:'Delicious white baked fresh bread<br>and toast',salary:'$20',nameproduct:'premium nut',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
-   {imagproducturl:'./Images/11.jpg.png', categoryproduct:'Bakery',paragraph:'Delicious white baked fresh bread<br>and toast',salary:'$20',nameproduct:'trail mix',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
-   {imagproducturl:'./Images/12.jpg.png', categoryproduct:'Bakery',paragraph:'Delicious white baked fresh bread<br>and toast',salary:'$20',nameproduct:'whole',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
-   {imagproducturl:'./Images/1.jpg.png', categoryproduct:'vegetables',paragraph:'Fresh organic villa farm lomon<br> 500gm pack' , salary:'$120',nameproduct: 'Fresh Organic Lemon',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
-   {imagproducturl:'./Images/2.jpg.png', categoryproduct:'snakes',paragraph:'Best snakes with hazel nut pack <br>200gm',salary:'$145',nameproduct: 'fresh apple',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
-   {imagproducturl:'./Images/3.jpg.png', categoryproduct:'fruits',paragraph:'Fresh organic apple 1kg simla<br>marming',salary:'$120',nameproduct:'sweet cake',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
-]
 
 //localStorage.setItem("productsArr", JSON.stringify(arrproduct));
 

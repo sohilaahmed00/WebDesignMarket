@@ -102,6 +102,12 @@ class AuthSystem {
         }
         
         this.showAlert(`Welcome back, ${user.firstName}! Login successful.`, "success");
+
+        // Modifications to login.js (add this after successful login in handleLogin)
+        localStorage.setItem('currentUserEmail', user.email);
+
+        // In logout method, add:
+        localStorage.removeItem('currentUserEmail');
         
         // Clear form
         document.getElementById("loginForm").reset();
@@ -330,6 +336,11 @@ class AuthSystem {
         this.currentUser = null;
         localStorage.removeItem('foodzy_remember_user');
         this.showAlert("Logged out successfully", "success");
+        // Modifications to login.js (add this after successful login in handleLogin)
+        localStorage.setItem('currentUserEmail', user.email);
+
+        // In logout method, add:
+        localStorage.removeItem('currentUserEmail');
         setTimeout(() => {
             window.location.href = "index.html";
         }, 1000);

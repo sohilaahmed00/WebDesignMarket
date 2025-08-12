@@ -3,9 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin Dashboard - Foodzy</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../Admin/css/admin.css">
+    <style>
+        /* body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; }
+        .sidebar { background-color: #2c3e50; color: white; height: 100vh; padding: 20px; position: fixed; width: 250px; }
+        .sidebar a { color: white; display: block; padding: 10px; text-decoration: none; }
+        .sidebar a:hover { background-color: #34495e; }
+        .main-content { margin-left: 250px; padding: 20px; }
+        .card { border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        table { width: 100%; }
+        .modal-content { border-radius: 15px; }
+        .btn-primary { background-color: #e74c3c; border-color: #e74c3c; }
+        .btn-primary:hover { background-color: #c0392b; border-color: #c0392b; } */
+    </style>
 </head>
 <body>
-    
+    <div class="sidebar">
+        <h3 class="mb-4">Admin Dashboard</h3>
+        <a href="#" onclick="showSection('users')"><i class="fas fa-users me-2"></i> Users</a>
+        <a href="#" onclick="showSection('products')"><i class="fas fa-box me-2"></i> Products</a>
+        <a href="#" onclick="showSection('orders')"><i class="fas fa-shopping-cart me-2"></i> Orders</a>
+        <a href="index.html" class="mt-auto"><i class="fas fa-sign-out-alt me-2"></i> Logout</a>
+    </div>
+
+    <div class="main-content">
+        <!-- Users Section -->
+        <div id="users-section" class="section">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h4>Users Management</h4>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#userModal"><i class="fas fa-plus me-2"></i> Add User</button>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped" id="users-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Section -->
+        <div id="products-section" class="section d-none">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h4>Products Management</h4>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal"><i class="fas fa-plus me-2"></i> Add Product</button>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped" id="products-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Image URL</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Orders Section -->
+        <div id="orders-section" class="section d-none">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h4>Orders Management</h4>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped" id="orders-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>User Email</th>
+                                <th>Total</th>
+                                <th>Date</th>
+                                <th>Items</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Modal -->
+    <div class="modal fade" id="userModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add/Edit User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="userForm">
+                        <input type="hidden" id="userId">
+                        <div class="mb-3">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" id="firstName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" id="lastName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Phone</label>
+                            <input type="tel" class="form-control" id="phoneNumber" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Password</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Address</label>
+                            <input type="text" class="form-control" id="address" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>City</label>
+                            <input type="text" class="form-control" id="city" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Post Code</label>
+                            <input type="text" class="form-control" id="postCode">
+                        </div>
+                        <div class="mb-3">
+                            <label>Country</label>
+                            <input type="text" class="form-control" id="country" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Region/State</label>
+                            <input type="text" class="form-control" id="regionState" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="saveUser()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add/Edit Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="productForm">
+                        <input type="hidden" id="productId">
+                        <div class="mb-3">
+                            <label>Name</label>
+                            <input type="text" class="form-control" id="nameproduct" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Category</label>
+                            <input type="text" class="form-control" id="categoryproduct" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Description</label>
+                            <input type="text" class="form-control" id="p" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Price</label>
+                            <input type="text" class="form-control" id="salary" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Old Price</label>
+                            <input type="text" class="form-control" id="old_salary">
+                        </div>
+                        <div class="mb-3">
+                            <label>Image URL</label>
+                            <input type="text" class="form-control" id="magproducturl" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Rating</label>
+                            <input type="number" class="form-control" id="rating" step="0.1" min="0" max="5">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="saveProduct()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../Admin/JS/admin.js"></script>
 </body>
 </html>

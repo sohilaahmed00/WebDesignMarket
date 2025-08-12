@@ -91,3 +91,45 @@ function doSearch(e) {
     }
   });
 }
+
+
+
+
+
+
+
+// Modifications to cart.js (add this to the existing cart.js file)
+function checkoutCart() {
+  if(cart.length === 0){
+    alert('The basket is empty');
+    return;
+  }
+  
+  const currentUserEmail = localStorage.getItem('currentUserEmail');
+  if (!currentUserEmail) {
+    alert('Please login to place an order');
+    window.location.href = 'login.html';
+    return;
+  }
+  
+  let total = 0;
+  cart.forEach(item => {
+    let priceNum = parseFloat(item.price.toString().replace(/[^0-9.-]+/g,"")) || 0;
+    total += priceNum * item.quantity;
+  });
+  
+  const order = {
+    id: Date.now(),
+    userEmail: currentUserEmail,
+    items: [...cart],
+    total: total.toFixed(2),
+    date: new Date().toISOString()
+  };
+  
+  let orders = JSON.parse(localStorage.getItem('foodzy_orders')) || [];
+  orders.push(order);
+  localStorage.setItem('foodzy_orders', JSON.stringify(orders));
+  
+  localStorage.removeItem('cart'); 
+  window.location.href = 'thank.html';
+}

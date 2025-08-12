@@ -6,7 +6,7 @@ div buttons --> id="button"
 Addbutton-->     id="Addbutton"
 detailsbutton --> id="productetails"
 
-*/
+*/  
 
 
 
@@ -31,11 +31,11 @@ function products(array = arrproduct) {
                 <img src="${array[i].magproducturl}" style="padding:13px; width: 280px; height: 280px;">
                 <h6 class="text-center" style="color: #777777;">${array[i].categoryproduct}</h6>
                 <p style="text-align: center;">${array[i].nameproduct}</p>
-                <div class="text-center" id="productfont">
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
+                <div class="text-center stars-container">
+                    <i class="fa-regular fa-star" onclick="starclick(this)"></i>
+                    <i class="fa-regular fa-star" onclick="starclick(this)"></i>
+                    <i class="fa-regular fa-star" onclick="starclick(this)"></i>
+                    <i class="fa-regular fa-star" onclick="starclick(this)"></i>
                 </div>
                 <p class="text-center" style="font-weight: bold;">${array[i].p}</p>
                 <div id="button" class="d-flex justify-content-between">
@@ -70,30 +70,30 @@ document.addEventListener('DOMContentLoaded', () => {
     let detailsContainer = document.getElementById('proddetails');
     if (detailsContainer) {
         detailsContainer.innerHTML = `
-        <div class="images "  style="background-color: #F7F7F8; height:280px" >
-            <img   src="${product.magproducturl}" id="mainimage" ">            
+        <div class="images "  style="background-color: #F7F7F8; height:350px" >
+            <img   src="${product.magproducturl}" id="mainimage" style = "height:350px">            
         </div>
         <div style="width: 500px;"  >
-            <h6 style="text-align:center;">${product.head}</h6>
-            <p>${product.para}</p>
+            <h6 style="text-align:center;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: 22px;">${product.head}</h6>
+            <p style="font-size: 14px;font-weight: 400;color: #7A7A7A;">${product.para}</p>
             <div class="d-flex col justify-content-start">
-                <p style="font-weight:bolder;">Brand:</p>
-                <p>&nbsp; ${product.Brand}</p>
+                <p style="font-weight:bolder;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 600;">Brand:</p>
+                <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 400; color: #777777">&nbsp; ${product.Brand}</p>
             </div>
             <div class="d-flex col justify-content-start">
-                <p style="font-weight:bolder;">Flavour:</p>
-                <p>&nbsp; ${product.Flavou}</p>
+                <p style="font-weight:bolder;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 600;">Flavour:</p>
+                <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 400; color: #777777">&nbsp; ${product.Flavour}</p>
             </div>
             <div class="d-flex col justify-content-start">
-                <p style="font-weight:bolder;">Diet Type:</p>
-                <p>&nbsp; ${product.DietType}</p>
+                <p style="font-weight:bolder;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 600;">Diet Type:</p>
+                <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 400; color: #777777">&nbsp; ${product.DietType}</p>
             </div>
             <div class="d-flex col justify-content-start">
-                <p style="font-weight: bolder;">Weight &nbsp; &nbsp; &nbsp;    :</p>
-                <p>&nbsp;${product.Weight}</p></div>
+                <p style="font-weight: bolder;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 600;">Weight &nbsp; &nbsp; &nbsp;    :</p>
+                <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 400; color: #777777">&nbsp;${product.Weight}</p></div>
                 <div class="d-flex col justify-content-start">
-                <p style="font-weight: bolder;">Info &nbsp; &nbsp; &nbsp;    :</p>
-                <p>&nbsp; ${product.Info}</p></div>
+                <p style="font-weight: bolder;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 600;">Info &nbsp; &nbsp; &nbsp;    :</p>
+                <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 400; color: #777777">&nbsp; ${product.Info}</p></div>
 
                 <p style="color: red; font-weight: 600; margin-top: 10px; font-size: 24px;">${product.salary}</p>
                 
@@ -201,4 +201,35 @@ function clickReview() {
     document.getElementById("Description").style.color = "#2B2B2D";
     document.getElementById("Information").style.color = "#2B2B2D";
     document.getElementById("Review").style.color = "red";
+}
+
+
+
+function starclick(clickedStar) {
+    // Get all stars in the same container
+    const starsContainer = clickedStar.closest(".stars-container");
+    const stars = starsContainer.querySelectorAll(".fa-star");
+
+    // Find the index of the clicked star
+    let clickedIndex = -1;
+    for (let i = 0; i < stars.length; i++) {
+        if (stars[i] === clickedStar) {
+            clickedIndex = i;
+            break;
+        }
+    }
+
+    // Update all stars up to the clicked one
+    for (let i = 0; i <= clickedIndex; i++) {
+        stars[i].classList.remove("fa-regular");
+        stars[i].classList.add("fa-solid");
+        stars[i].style.color = "#FFD43B";
+    }
+
+    // Reset stars after the clicked one (if needed)
+    for (let i = clickedIndex + 1; i < stars.length; i++) {
+        stars[i].classList.remove("fa-solid");
+        stars[i].classList.add("fa-regular");
+        stars[i].style.color = "";
+    }
 }

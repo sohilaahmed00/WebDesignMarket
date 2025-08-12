@@ -1,0 +1,139 @@
+body {
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+.checkout-box {
+  border: 1px solid #ddd;
+  padding: 20px;
+  max-width: 400px;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.checkout-box h3 {
+  margin-top: 0;
+}
+
+.checkout-box p {
+  font-size: 14px;
+  color: #555;
+}
+
+.checkout-box label {
+  font-weight: normal;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.checkout-box input[type="radio"] {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.info-text {
+  font-size: 13px;
+  color: #666;
+  margin: 15px 0;
+}
+
+.btn-continue {
+  background-color: #e74c3c; /* لون أحمر */
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-continue:hover {
+  background-color: #c0392b;
+}
+
+
+.checkout-summary {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 20px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
+.checkout-summary h4 {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.checkout-summary p {
+  margin: 5px 0;
+}
+
+.product-summary {
+  margin-top: 15px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.product-summary img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+form {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 20px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+
+form h3 {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+form input,
+form select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+form input:focus,
+form select:focus {
+  border-color: #ff4d4d;
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 77, 77, 0.5);
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+button#place-order-btn {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button#place-order-btn:hover {
+  background-color: #e63939;
+}

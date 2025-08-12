@@ -6,25 +6,25 @@ div buttons --> id="button"
 Addbutton-->     id="Addbutton"
 detailsbutton --> id="productetails"
 
-*/
+*/  
 
 
 
 
 
-arrproduct=[
-    {id:'lemon',magproducturl:'./Images/1.jpg.png', categoryproduct:'vegetables',p:'Fresh organic villa farm lomon<br> 500gm pack' , salary:'$120',nameproduct: 'Fresh Organic Lemon',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'Vegetarian'},
-   {id:'apple',magproducturl:'./Images/2.jpg.png', categoryproduct:'snakes',p:'Best snakes with hazel nut pack <br>200gm',salary:'$145',nameproduct: 'fresh apple',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'fg'},
-   {id:'cake',magproducturl:'./Images/3.jpg.png', categoryproduct:'fruits',p:'Fresh organic apple 1kg simla<br>marming',salary:'$120',nameproduct:'sweet cake',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'ewr'},
-   {id:'chocolate',magproducturl:'./Images/9.jpg.png', categoryproduct:'fruits',p:'Organic fresh venila farm<br>watermelon 5kg',salary:'$50.30',nameproduct:'chocalate',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'erewrf'},
-   {magproducturl:'./Images/10.jpg.png', categoryproduct:'snacks',p:'Sweet crunchy nut mix 250gm<br>pack,salary',salary:'$120.30',nameproduct:'crunchy nut',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'hytgf'},
-   {magproducturl:'./Images/17.jpg.png', categoryproduct:'Bakery',p:'Delicious white baked fresh bread<br>and toast',salary:'$20',nameproduct:'toast',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'Vegetarian'},
-   {magproducturl:'./Images/13.jpg.png', categoryproduct:'Bakery',p:'Delicious white baked fresh bread<br>and toast',salary:'$20',nameproduct:'premium nut',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'Vegetarian'},
-   {magproducturl:'./Images/11.jpg.png', categoryproduct:'Bakery',p:'Delicious white baked fresh bread<br>and toast',salary:'$20',nameproduct:'trail mix',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'Vegetarian'},
-   {magproducturl:'./Images/12.jpg.png', categoryproduct:'Bakery',p:'Delicious white baked fresh bread<br>and toast',salary:'$20',nameproduct:'whole',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'Vegetarian'},
-   {magproducturl:'./Images/1.jpg.png', categoryproduct:'vegetables',p:'Fresh organic villa farm lomon<br> 500gm pack' , salary:'$120',nameproduct: 'Fresh Organic Lemon',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'Vegetarian'},
-   {magproducturl:'./Images/2.jpg.png', categoryproduct:'snakes',p:'Best snakes with hazel nut pack <br>200gm',salary:'$145',nameproduct: 'fresh apple',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'Vegetarian'},
-   {magproducturl:'./Images/3.jpg.png', categoryproduct:'fruits',p:'Fresh organic apple 1kg simla<br>marming',salary:'$120',nameproduct:'sweet cake',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'Vegetarian'},
+let arrproduct=[
+    {id:'lemon',imagproducturl:'./Images/1.jpg.png', categoryproduct:'vegetables',paragraph:'Fresh organic villa farm lomon<br> 500gm pack' , salary:'$120',nameproduct: 'Fresh Organic Lemon',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+   {id:'apple',imagproducturl:'./Images/2.jpg.png', categoryproduct:'snakes',paragraph:'Best snakes with hazel nut pack <br>200gm',salary:'$145',nameproduct: 'fresh apple',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'fg',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+   {id:'cake',imagproducturl:'./Images/3.jpg.png', categoryproduct:'fruits',paragraph:'Fresh organic apple 1kg simla<br>marming',salary:'$120',nameproduct:'sweet cake',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'ewr',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+   {id:'chocolate',imagproducturl:'./Images/9.jpg.png', categoryproduct:'fruits',paragraph:'Organic fresh venila farm<br>watermelon 5kg',salary:'$50.30',nameproduct:'chocalate',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'erewrf',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+   {imagproducturl:'./Images/10.jpg.png', categoryproduct:'snacks',paragraph:'Sweet crunchy nut mix 250gm<br>pack,salary',salary:'$120.30',nameproduct:'crunchy nut',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'hytgf',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+   {imagproducturl:'./Images/17.jpg.png', categoryproduct:'Bakery',paragraph:'Delicious white baked fresh bread<br>and toast',salary:'$20',nameproduct:'toast',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+   {imagproducturl:'./Images/13.jpg.png', categoryproduct:'Bakery',paragraph:'Delicious white baked fresh bread<br>and toast',salary:'$20',nameproduct:'premium nut',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+   {imagproducturl:'./Images/11.jpg.png', categoryproduct:'Bakery',paragraph:'Delicious white baked fresh bread<br>and toast',salary:'$20',nameproduct:'trail mix',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+   {imagproducturl:'./Images/12.jpg.png', categoryproduct:'Bakery',paragraph:'Delicious white baked fresh bread<br>and toast',salary:'$20',nameproduct:'whole',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+   {imagproducturl:'./Images/1.jpg.png', categoryproduct:'vegetables',paragraph:'Fresh organic villa farm lomon<br> 500gm pack' , salary:'$120',nameproduct: 'Fresh Organic Lemon',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+   {imagproducturl:'./Images/2.jpg.png', categoryproduct:'snakes',paragraph:'Best snakes with hazel nut pack <br>200gm',salary:'$145',nameproduct: 'fresh apple',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+   {imagproducturl:'./Images/3.jpg.png', categoryproduct:'fruits',paragraph:'Fresh organic apple 1kg simla<br>marming',salary:'$120',nameproduct:'sweet cake',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavour:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
 ]
 
 //localStorage.setItem("productsArr", JSON.stringify(arrproduct));
@@ -36,16 +36,16 @@ function products(array = arrproduct) {
     for (let i = 0; i < array.length; i++) {
         emp += `
             <div class="img w-auto" style="background-color:white; margin:5px; border: 3px #E9E9E9 solid;">
-                <img src="${array[i].magproducturl}" style="padding:13px; width: 280px; height: 280px;">
+                <img src="${array[i].imagproducturl}" style="padding:13px; width: 280px; height: 280px;">
                 <h6 class="text-center" style="color: #777777;">${array[i].categoryproduct}</h6>
                 <p style="text-align: center;">${array[i].nameproduct}</p>
-                <div class="text-center" id="productfont">
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
+                <div class="text-center stars-container">
+                    <i class="fa-regular fa-star" onclick="starclick(this)"></i>
+                    <i class="fa-regular fa-star" onclick="starclick(this)"></i>
+                    <i class="fa-regular fa-star" onclick="starclick(this)"></i>
+                    <i class="fa-regular fa-star" onclick="starclick(this)"></i>
                 </div>
-                <p class="text-center" style="font-weight: bold;">${array[i].p}</p>
+                <p class="text-center" style="font-weight: bold;">${array[i].paragraph}</p>
                 <div id="button" class="d-flex justify-content-between">
                     <p style="color: red; font-weight: 700; margin-left:50px;">${array[i].salary}</p>
                     <button onclick="goToDetails('${i}')" style="color:white; background-color: red; width: 85px; height: 36px; border-radius: 4px; border: red;">Details</button>
@@ -78,30 +78,30 @@ document.addEventListener('DOMContentLoaded', () => {
     let detailsContainer = document.getElementById('proddetails');
     if (detailsContainer) {
         detailsContainer.innerHTML = `
-        <div class="images "  style="background-color: #F7F7F8; height:280px" >
-            <img   src="${product.magproducturl}" id="mainimage" ">            
+        <div class="images "  style="background-color: #F7F7F8; height:350px" >
+            <img   src="${product.imagproducturl}" id="mainimage" style = "height:350px">            
         </div>
         <div style="width: 500px;"  >
-            <h6 style="text-align:center;">${product.head}</h6>
-            <p>${product.para}</p>
+            <h6 style="text-align:center;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: 22px;">${product.head}</h6>
+            <p style="font-size: 14px;font-weight: 400;color: #7A7A7A;">${product.para}</p>
             <div class="d-flex col justify-content-start">
-                <p style="font-weight:bolder;">Brand:</p>
-                <p>&nbsp; ${product.Brand}</p>
+                <p style="font-weight:bolder;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 600;">Brand:</p>
+                <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 400; color: #777777">&nbsp; ${product.Brand}</p>
             </div>
             <div class="d-flex col justify-content-start">
-                <p style="font-weight:bolder;">Flavour:</p>
-                <p>&nbsp; ${product.Flavou}</p>
+                <p style="font-weight:bolder;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 600;">Flavour:</p>
+                <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 400; color: #777777">&nbsp; ${product.Flavour}</p>
             </div>
             <div class="d-flex col justify-content-start">
-                <p style="font-weight:bolder;">Diet Type:</p>
-                <p>&nbsp; ${product.DietType}</p>
+                <p style="font-weight:bolder;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 600;">Diet Type:</p>
+                <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 400; color: #777777">&nbsp; ${product.DietType}</p>
             </div>
             <div class="d-flex col justify-content-start">
-                <p style="font-weight: bolder;">Weight &nbsp; &nbsp; &nbsp;    :</p>
-                <p>&nbsp;${product.Weight}</p></div>
+                <p style="font-weight: bolder;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 600;">Weight &nbsp; &nbsp; &nbsp;    :</p>
+                <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 400; color: #777777">&nbsp;${product.Weight}</p></div>
                 <div class="d-flex col justify-content-start">
-                <p style="font-weight: bolder;">Info &nbsp; &nbsp; &nbsp;    :</p>
-                <p>&nbsp; ${product.Info}</p></div>
+                <p style="font-weight: bolder;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 600;">Info &nbsp; &nbsp; &nbsp;    :</p>
+                <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 400; color: #777777">&nbsp; ${product.Info}</p></div>
 
                 <p style="color: red; font-weight: 600; margin-top: 10px; font-size: 24px;">${product.salary}</p>
                 
@@ -209,4 +209,35 @@ function clickReview() {
     document.getElementById("Description").style.color = "#2B2B2D";
     document.getElementById("Information").style.color = "#2B2B2D";
     document.getElementById("Review").style.color = "red";
+}
+
+
+
+function starclick(clickedStar) {
+    // Get all stars in the same container
+    const starsContainer = clickedStar.closest(".stars-container");
+    const stars = starsContainer.querySelectorAll(".fa-star");
+
+    // Find the index of the clicked star
+    let clickedIndex = -1;
+    for (let i = 0; i < stars.length; i++) {
+        if (stars[i] === clickedStar) {
+            clickedIndex = i;
+            break;
+        }
+    }
+
+    // Update all stars up to the clicked one
+    for (let i = 0; i <= clickedIndex; i++) {
+        stars[i].classList.remove("fa-regular");
+        stars[i].classList.add("fa-solid");
+        stars[i].style.color = "#FFD43B";
+    }
+
+    // Reset stars after the clicked one (if needed)
+    for (let i = clickedIndex + 1; i < stars.length; i++) {
+        stars[i].classList.remove("fa-solid");
+        stars[i].classList.add("fa-regular");
+        stars[i].style.color = "";
+    }
 }

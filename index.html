@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="./css/all.min.css">
     <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/nav.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/cart.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
+  <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
             <!-- Top Navigation -->
@@ -21,21 +23,21 @@
                         <i class="fas fa-bars"></i>
                     </button>
                     <ul class="nav-links">
-                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="index.html" class="nav-link-item">Home</a></li>
                         <li class="dropdown">
-                            <a href="#">Category <i class="fas fa-chevron-down"></i></a>
+                            <a href="#" class="nav-link-item">Category <i class="fas fa-chevron-down"></i></a>
                         </li>
                         <li class="dropdown">
-                            <a href="product.html">Products <i class="fas fa-chevron-down"></i></a>
+                            <a href="product.html" class="nav-link-item">Products <i class="fas fa-chevron-down"></i></a>
                         </li>
                         <li class="dropdown">
-                            <a href="#">Pages <i class="fas fa-chevron-down"></i></a>
+                            <a href="#" class="nav-link-item">Pages <i class="fas fa-chevron-down"></i></a>
                         </li>
                         <li class="dropdown">
-                            <a href="blogdetails.html">Blog <i class="fas fa-chevron-down"></i></a>
+                            <a href="blogdetails.html" class="nav-link-item">Blog <i class="fas fa-chevron-down"></i></a>
                         </li>
                         <li class="dropdown">
-                            <a href="#">Elements <i class="fas fa-chevron-down"></i></a>
+                            <a href="#" class="nav-link-item">Elements <i class="fas fa-chevron-down"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -47,7 +49,6 @@
                 </div>
             </div>
 
-           
             <div class="nav-bottom">
                 <div class="logo">
                     <div class="logo-icon">
@@ -75,23 +76,25 @@
                 </div>
 
                 <div class="nav-actions">
-                    <a href="#" class="action-item">
+                    <a href="login.html" class="action-item">
                         <i class="fas fa-user"></i>
                         <span>Account</span>
                     </a>
-                    <a href="#" class="action-item">
-                        <i class="fas fa-heart"></i>
-                        <span>Wishlist</span>
+                    <a href="register.html" class="action-item">
+                        <i class="fas fa-login"></i>
+                        <span>Signup</span>
                     </a>
-                    <a href="#" class="action-item">
+                    <a href="cart.html" class="action-item">
                         <i class="fas fa-shopping-cart"></i>
                         <span>Cart</span>
+                        <span id="cart-count" class="cart-count">0</span>
                     </a>
                 </div>
             </div>
+           
         </div>
+        
     </nav>
-
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-container">
@@ -424,8 +427,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    
+      <!-- Footer -->
    <footer class="footer-section">
     <div class="container">
         <div class="row">
@@ -450,28 +452,28 @@
             </div>
 
             
-            <div class="col-lg-2 col-md-6 mb-4">
+            <div class="col-lg-2 col-md-6 mb-4" id="Company">
                 <h5>Company</h5>
                 <ul class="nav flex-column">
-                    <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Delivery Information</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Privacy Policy</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Terms & Conditions</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Contact Us</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Support Center</a></li>
+                    <li class="nav-item"><a href="./about us.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="./Delivery.html" class="nav-link">Delivery Information</a></li>
+                    <li class="nav-item"><a href="./Privacy.html" class="nav-link">Privacy Policy</a></li>
+                    <li class="nav-item"><a href="./Terms&Condition.html" class="nav-link">Terms & Conditions</a></li>
+                    <li class="nav-item"><a href="./contactus.html" class="nav-link">Contact Us</a></li>
+                    <li class="nav-item"><a href="./supportcenter.html" class="nav-link">Support Center</a></li>
                 </ul>
             </div>
 
            
-            <div class="col-lg-2 col-md-6 mb-4">
-                <h5>Category</h5>
+            <div class="col-lg-2 col-md-6 mb-4" id="Category">
+                <h5>Category </h5>
                 <ul class="nav flex-column">
-                    <li class="nav-item"><a href="#" class="nav-link">Dairy & Bakery</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Fruits & Vegetable</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Snack & Spice</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Juice & Drinks</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Chicken & Meat</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Fast Food</a></li>
+                    <li class="nav-item"><a href="./product.html" class="nav-link">Dairy & Bakery</a></li>
+                    <li class="nav-item"><a href="./product.html" class="nav-link">Fruits & Vegetable</a></li>
+                    <li class="nav-item"><a href="./product.html" class="nav-link">Snack & Spice</a></li>
+                    <li class="nav-item"><a href="./product.html" class="nav-link">Juice & Drinks</a></li>
+                    <li class="nav-item"><a href="./product.html" class="nav-link">Chicken & Meat</a></li>
+                    <li class="nav-item"><a href="./product.html" class="nav-link">Fast Food</a></li>
                 </ul>
             </div>
 
@@ -505,6 +507,27 @@
         </div>
     </div>
 </footer>
+
+<script>
+
+arrproduct = [
+    {id: 1, magproducturl:'./Images/1.jpg.png', categoryproduct:'vegetables',p:'Fresh organic villa farm lomon<br> 500gm pack' , salary:'$120',nameproduct: 'Fresh Organic Lemon',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+    {id: 2, magproducturl:'./Images/2.jpg.png', categoryproduct:'snakes',p:'Best snakes with hazel nut pack <br>200gm',salary:'$145',nameproduct: 'fresh apple',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+    {id: 3, magproducturl:'./Images/3.jpg.png', categoryproduct:'fruits',p:'Fresh organic apple 1kg simla<br>marming',salary:'$120',nameproduct:'sweet cake',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+    {id: 4, magproducturl:'./Images/9.jpg.png', categoryproduct:'fruits',p:'Organic fresh venila farm<br>watermelon 5kg',salary:'$50.30',nameproduct:'chocalate',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+    {id: 5, magproducturl:'./Images/10.jpg.png', categoryproduct:'snacks',p:'Sweet crunchy nut mix 250gm<br>pack,salary',salary:'$120.30',nameproduct:'crunchy nut',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+    {id: 6, magproducturl:'./Images/17.jpg.png', categoryproduct:'Bakery',p:'Delicious white baked fresh bread<br>and toast',salary:'$20',nameproduct:'toast',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+    {id: 7, magproducturl:'./Images/13.jpg.png', categoryproduct:'Bakery',p:'Delicious white baked fresh bread<br>and toast',salary:'$20',nameproduct:'premium nut',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+    {id: 8, magproducturl:'./Images/11.jpg.png', categoryproduct:'Bakery',p:'Delicious white baked fresh bread<br>and toast',salary:'$20',nameproduct:'trail mix',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+    {id: 9, magproducturl:'./Images/12.jpg.png', categoryproduct:'Bakery',p:'Delicious white baked fresh bread<br>and toast',salary:'$20',nameproduct:'whole',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+    {id: 10, magproducturl:'./Images/1.jpg.png', categoryproduct:'vegetables',p:'Fresh organic villa farm lomon<br> 500gm pack' , salary:'$120',nameproduct: 'Fresh Organic Lemon',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+    {id: 11, magproducturl:'./Images/2.jpg.png', categoryproduct:'snakes',p:'Best snakes with hazel nut pack <br>200gm',salary:'$145',nameproduct: 'fresh apple',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+    {id: 12, magproducturl:'./Images/3.jpg.png', categoryproduct:'fruits',p:'Fresh organic apple 1kg simla<br>marming',salary:'$120',nameproduct:'sweet cake',head:'Seeds Of Change Oraganic Quinoa, Brown',para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?',Brand:'ESTA BETTERU CO',Flavou:'Super Saver Pack',DietType:'Vegetarian',Weight:'100g',Info:'Egg Free, Allergen-Free'},
+];
+
+localStorage.setItem("productsArr", JSON.stringify(arrproduct));
+</script>
+    <script src="JS/cart-manager.js"></script>
     <script src="JS/script.js"></script>
     
     <script src="./JS/all.min.js"></script>

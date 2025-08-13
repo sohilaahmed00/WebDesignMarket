@@ -76,3 +76,11 @@
             color: #dc3545;
             text-decoration: none;
         }
+    #Company a:hover{
+       color: red !important;
+    }
+    #Category a:hover{
+       color: red !important;
+    }
+
+

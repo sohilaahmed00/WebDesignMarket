@@ -1,31 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./fontawesome-free-7.0.0-web/fontawesome-free-7.0.0-web/css/all.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../footer/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/nav.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/styleproduct.css">
-    <link rel="stylesheet" href="./css/footer.css">
-  
-    <title>Document</title>
-
-
-
-<style>
-    body{
-        background-color: white;
-       
+ <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <title>Support Center</title>
+  <link rel="stylesheet" href="./css/nav.css">
+  <link rel="stylesheet" href="./css/footer.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f6f8;
+      color: #333;
     }
-</style>
+
+    header {
+      
+      color:black;
+      padding: 20px;
+      text-align: center;
+      
+    }
+
+    header h4 {
+      margin: 0;
+      font-size: 1.8rem;
+      /* font-weight: bold;
+      font-size: 22px; */
+    }
+
+    .search-container {
+      text-align: center;
+      margin: 20px auto;
+      max-width: 500px;
+      padding: 0 10px;
+    }
+
+    .search-container input {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    .faq-section {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 10px;
+    }
+
+    .faq {
+      background: white;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 15px;
+      background: #f8f9fa;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question:hover {
+      background: #eef3f8;
+    }
+
+    .faq-question span {
+      font-weight: bold;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 15px;
+      border-top: 1px solid #eee;
+    }
+
+    .faq.open .faq-answer {
+      display: block;
+    }
+
+    .no-results {
+      text-align: center;
+      color: #888;
+      margin-top: 20px;
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<!--  Nav bar -->
-   <nav class="navbar">
+
+    <!--Nav-->
+<nav class="navbar">
         <div class="nav-container">
             <!-- Top Navigation -->
             <div class="nav-top">
@@ -34,21 +115,21 @@
                         <i class="fas fa-bars"></i>
                     </button>
                     <ul class="nav-links">
-                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="index.html" class="nav-link-item">Home</a></li>
                         <li class="dropdown">
-                            <a href="#">Category <i class="fas fa-chevron-down"></i></a>
+                            <a href="#" class="nav-link-item">Category <i class="fas fa-chevron-down"></i></a>
                         </li>
                         <li class="dropdown">
-                            <a href="product.html">Products <i class="fas fa-chevron-down"></i></a>
+                            <a href="product.html" class="nav-link-item">Products <i class="fas fa-chevron-down"></i></a>
                         </li>
                         <li class="dropdown">
-                            <a href="#">Pages <i class="fas fa-chevron-down"></i></a>
+                            <a href="#" class="nav-link-item">Pages <i class="fas fa-chevron-down"></i></a>
                         </li>
                         <li class="dropdown">
-                            <a href="#">Blog <i class="fas fa-chevron-down"></i></a>
+                            <a href="blogdetails.html" class="nav-link-item">Blog <i class="fas fa-chevron-down"></i></a>
                         </li>
                         <li class="dropdown">
-                            <a href="#">Elements <i class="fas fa-chevron-down"></i></a>
+                            <a href="#" class="nav-link-item">Elements <i class="fas fa-chevron-down"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -60,7 +141,6 @@
                 </div>
             </div>
 
-           
             <div class="nav-bottom">
                 <div class="logo">
                     <div class="logo-icon">
@@ -88,88 +168,73 @@
                 </div>
 
                 <div class="nav-actions">
-                    <a href="#" class="action-item">
+                    <a href="login.html" class="action-item">
                         <i class="fas fa-user"></i>
                         <span>Account</span>
                     </a>
-                    <a href="#" class="action-item">
-                        <i class="fas fa-heart"></i>
-                        <span>Wishlist</span>
+                    <a href="register.html" class="action-item">
+                        <i class="fas fa-login"></i>
+                        <span>Signup</span>
                     </a>
-                    <a href="#" class="action-item">
+                    <a href="cart.html" class="action-item">
                         <i class="fas fa-shopping-cart"></i>
                         <span>Cart</span>
                     </a>
                 </div>
             </div>
+           
         </div>
-    </nav>   
-    
+        
+    </nav>
+
 <div class="Home-product d-flex justify-content-evenly flex-wrap" style="height: 50px; background-color: red; color: white;">
-<p style="margin-top: 10px;">product details</p>
-<p style="margin-left: 1000px; margin-top: 10px;">Home-product details</p>
-</div>    
-
-<!-- Details -->
- <div class="container" style="margin-top: 100px;" >
-
-    <div class="d-flex flex-wrap col justify-content-evenly "id="proddetails" >
-       <!--<div class="images ">
-            <img   src="./Images/1.jpg.png" id="mainimage"style="width: px; height: 471px;" >            
-        </div>
-        <div style="width: 500px;"  >
-            <h6 style="text-align: center;">Seeds Of Change Oraganic Quinoa, Brown</h6>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iureminus error doloribus saepe natus?</p>
-                <div class="d-flex col justify-content-start">
-                <p style="font-weight: bolder;">Brand  &nbsp; &nbsp; &nbsp;    :</p>
-                <p>&nbsp; ESTA BETTERU CO</p></div>
-                <div class="d-flex col justify-content-start">
-                <p style="font-weight: bolder;">Flavour &nbsp; &nbsp; &nbsp;    :</p>
-                <p>&nbsp; Super Saver Pack</p></div>
-                <div class="d-flex col justify-content-start">
-                <p style="font-weight: bolder;">Diet Type &nbsp; &nbsp; &nbsp;    :</p>
-                <p>&nbsp; Vegetarian</p></div>
-                <div class="d-flex col justify-content-start">
-                <p style="font-weight: bolder;">Weight &nbsp; &nbsp; &nbsp;    :</p>
-                <p>&nbsp; 200 Grams</p></div>
-                <div class="d-flex col justify-content-start">
-                <p style="font-weight: bolder;">Info &nbsp; &nbsp; &nbsp;    :</p>
-                <p>&nbsp; Egg Free, Allergen-Free</p></div>
-
-                <p style="color: red; font-weight: 600; margin-top: 10px; font-size: 24px;">$120</p>
-                
-                <div class="d-flex col justify-content-start">
-                <p style="font-weight: bolder;">Weight &nbsp; &nbsp; &nbsp;    :</p>
-                </div>
-                <button id="Addbutton" style="color:white ; background-color: red;width: 85px;height: 36px;border-radius: 4px;border: red ;" > Add</button>-->
-            </div>
-
-        
-        
-    
-
-    <div class="descriptionblock" style="padding: 50px 30px; margin: 10px;">
-    <div class="d-flex flex-wrap justify-content-start" style="margin-top: 50px; width: 966px; ">
-    <h6 id="Description" onclick="clickDescription()">Description &nbsp; &nbsp; &nbsp; &nbsp;</h6>
-    <h6 id="Information" onclick="clickInformation()">Information &nbsp; &nbsp; &nbsp; &nbsp;</h6>
-    <h6 id="Review" onclick="clickReview()">Review</h6>
-    <br></div>
-    <div id="showDescription">
-    <p >     </p> </div>
-    <br>
-    <div id="packing">
-    <h6 id="PackagingDelivery">Packaging & Delivery</h6>
-    <br>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error in vero perferendis dolor! Quis vel consequuntur repellat
-        distinctio rem. Corrupti ratione alias odio, error dolore temporibus consequatur, nobis veniam odit laborum dignissimos
-        consectetur quae vero in perferendis provident quis.</p>
-
-    </div>
-    </div>
+<p style="margin-top: 10px;">Support Center</p>
+<p style="margin-left: 1000px; margin-top: 10px;">Home-Support Center</p>
 </div>
 
 
-      <!-- Footer -->
+  <header>
+    <h4>Find answers to common questions</h4>
+    
+  </header>
+ 
+  <div class="faq-section" id="faqSection">
+    <div class="faq">
+      <div class="faq-question">
+        <span>How do I reset my password?</span>
+        <strong>+</strong>
+      </div>
+      <div class="faq-answer">
+        Go to the login page, click "Forgot Password", and follow the instructions sent to your email.
+      </div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">
+        <span>How do I contact support?</span>
+        <strong>+</strong>
+      </div>
+      <div class="faq-answer">
+        You can reach our support team via the "Contact Us" page or email support@example.com.
+      </div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">
+        <span>Where can I view my orders?</span>
+        <strong>+</strong>
+      </div>
+      <div class="faq-answer">
+        Log in to your account, click "My Orders" in the navigation menu to view your order history.
+      </div>
+    </div>
+  </div>
+
+  <p class="no-results" id="noResults">No results found.</p>
+
+
+  <br> <br> <br> 
+ <!-- Footer -->
    <footer class="footer-section">
     <div class="container">
         <div class="row">
@@ -249,10 +314,39 @@
         </div>
     </div>
 </footer>
+  <script>
+    // Toggle FAQ answers
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const faq = q.parentElement;
+        faq.classList.toggle('open');
+        q.querySelector('strong').textContent = faq.classList.contains('open') ? '-' : '+';
+      });
+    });
 
-<script src="./JS/product.js"></script>
- <script src="../footer/js/bootstrap.bundle.min.js"></script>
+    // Search function
+    const searchInput = document.getElementById('searchInput');
+    const faqs = document.querySelectorAll('.faq');
+    const noResults = document.getElementById('noResults');
+
+    searchInput.addEventListener('input', () => {
+      const searchValue = searchInput.value.toLowerCase();
+      let visibleCount = 0;
+
+      faqs.forEach(faq => {
+        const question = faq.querySelector('.faq-question span').textContent.toLowerCase();
+        if (question.includes(searchValue)) {
+          faq.style.display = '';
+          visibleCount++;
+        } else {
+          faq.style.display = 'none';
+        }
+      });
+
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    });
+  </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+<script src="./JS/bootstrap.bundle.min.js"></script>
 </body>
 </html>

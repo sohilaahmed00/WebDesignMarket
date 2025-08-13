@@ -1,126 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="css/checkout.css">
-<title>Checkout</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/checkout.css">
+  <link rel="stylesheet" href="./css/nav.css" />
+  <link rel="stylesheet" href="./css/all.min.css">
+  <link rel="stylesheet" href="./css/footer.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="container">
-
-  <h1 class="mb-4">Checkout</h1>
-
-  <div class="row">
- <div class="checkout-box">
-  <h3>New Customer</h3>
-  <p><strong>Checkout Options</strong></p>
-
-  <label>
-    <input type="radio" name="accountType" id="registerBtn" value="register" checked>
-    Register Account
-  </label>
-  <label style="margin-left: 20px;">
-    <input type="radio" name="accountType" id="guestBtn" value="guest">
-    Guest Account
-  </label>
-
-  <p class="info-text">
-    By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.
-  </p>
-
-  <button id="continueBtn" class="btn-continue">Continue</button>
-</div>
-
-  
-  <!-- Returning Customer -->
-  <div class="col-md-6">
-    <div class="card mb-4">
-      <div class="card-body">
-        <h5 class="card-title">Returning Customer</h5>
-        <div class="mb-3">
-          <input type="email" class="form-control" placeholder="Enter your email address">
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- Top Navigation -->
+      <div class="nav-top">
+        <div class="nav-left">
+          <button class="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link-item">Home</a></li>
+            <li class="dropdown">
+              <a href="#" class="nav-link-item">Category <i class="fas fa-chevron-down"></i></a>
+            </li>
+            <li class="dropdown">
+              <a href="product.html" class="nav-link-item">Products <i class="fas fa-chevron-down"></i></a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="nav-link-item">Pages <i class="fas fa-chevron-down"></i></a>
+            </li>
+            <li class="dropdown">
+              <a href="blogdetails.html" class="nav-link-item">Blog <i class="fas fa-chevron-down"></i></a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="nav-link-item">Elements <i class="fas fa-chevron-down"></i></a>
+            </li>
+          </ul>
         </div>
-        <div class="mb-3">
-          <input type="password" class="form-control" placeholder="Enter your password">
+        <div class="nav-right">
+          <div class="contact-info">
+            <i class="fas fa-phone"></i>
+            <span>+123 (456) (7890)</span>
+          </div>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <button class="btn btn-danger">Login</button>
-          <a href="#" class="small">Forgot Password?</a>
+      </div>
+
+      <div class="nav-bottom">
+        <div class="logo">
+          <div class="logo-icon">
+            <div class="chef-icon">
+              <img src="Images/Page-1 1.png" alt="logo" class="chef-image" />
+            </div>
+          </div>
+          <div class="logo-text">
+            <h2>Foodzy</h2>
+            <p>A Treasure of Tastes</p>
+          </div>
+        </div>
+
+        <div class="search-bar">
+          <input type="text" placeholder="Search for items..." />
+          <select class="category-select">
+            <option>All Categories</option>
+            <option>Pizza</option>
+            <option>Burgers</option>
+            <option>Pasta</option>
+          </select>
+          <button class="search-btn">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+
+        <div class="nav-actions">
+          <a href="login.html" class="action-item">
+            <i class="fas fa-user"></i>
+            <span>Account</span>
+          </a>
+          <a href="register.html" class="action-item">
+            <i class="fas fa-user-plus"></i>
+            <span>Signup</span>
+          </a>
+          <a href="cart.html" class="action-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart</span>
+            <span id="cart-count" class="cart-count">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Checkout Header -->
+  <div class="checkout-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Checkout</h2>
+        </div>
+        <div class="col-md-6 text-end">
+          <span class="breadcrumb-text">Home / Checkout</span>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-    <!-- Summary -->
-    <div class="col-lg-4">
-      <div class="checkout-summary" id="checkout-summary">
-        <h4>Summary</h4>
-        <p><strong>Sub Total:</strong> $<span id="subtotal">0.00</span></p>
-        <p><strong>Delivery Charges:</strong> $<span id="delivery">0.00</span></p>
-        <p><strong>Total Amount:</strong> $<span id="total">0.00</span></p>
+  <!-- Checkout Content -->
+  <div class="container checkout-container">
+    <div class="row">
+      <!-- Left Column -->
+      <div class="col-lg-8">
+        <div class="row">
+          <!-- New Customer -->
+          <div class="col-md-6 mb-4">
+            <div class="checkout-card">
+              <h5>New Customer</h5>
+              <p>Checkout Options</p>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="checkoutOptions" id="registerAccount" value="register" checked>
+                <label class="form-check-label" for="registerAccount">
+                  Register Account
+                </label>
+              </div>
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="radio" name="checkoutOptions" id="guestAccount" value="guest">
+                <label class="form-check-label" for="guestAccount">
+                  Guest Account
+                </label>
+              </div>
+              <p class="info-text">
+                By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.
+              </p>
+              <button class="btn btn-primary continue-btn">Continue</button>
+            </div>
+          </div>
 
-        <div class="product-summary" id="product-summary">
-          <!-- Example product -->
-          <div class="d-flex align-items-center mb-2">
-            <img src="https://via.placeholder.com/50" alt="product">
-            <div>
-              <p class="mb-0">Product Name</p>
-              <small>$10.00</small>
+          <!-- Returning Customer -->
+          <div class="col-md-6 mb-4">
+            <div class="checkout-card">
+              <h5>Returning Customer</h5>
+              <div class="mb-3">
+                <label for="inputEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email address">
+              </div>
+              <div class="mb-3">
+                <label for="inputPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="inputPassword" placeholder="Enter your password">
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <button class="btn btn-danger login-btn">Login</button>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+              </div>
             </div>
           </div>
         </div>
+
+        <!-- Billing Details -->
+        <div class="checkout-card mb-4">
+          <h5>Billing Details</h5>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="useExistingAddress">
+            <label class="form-check-label" for="useExistingAddress">
+              I want to use an existing address
+            </label>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="firstName" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="firstName" placeholder="First Name">
+            </div>
+            <div class="col-md-6">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+            </div>
+            <div class="col-12">
+              <label for="address" class="form-label">Address</label>
+              <input type="text" class="form-control" id="address" placeholder="Address Line 1">
+            </div>
+            <div class="col-md-6">
+              <label for="city" class="form-label">City</label>
+              <input type="text" class="form-control" id="city" placeholder="City">
+            </div>
+            <div class="col-md-6">
+              <label for="postCode" class="form-label">Post Code</label>
+              <input type="text" class="form-control" id="postCode" placeholder="Post Code">
+            </div>
+            <div class="col-md-6">
+              <label for="country" class="form-label">Country</label>
+              <select class="form-select" id="country">
+                <option selected>Country</option>
+                <option>...</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="regionState" class="form-label">Region / State</label>
+              <select class="form-select" id="regionState">
+                <option selected>Region / State</option>
+                <option>...</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Delivery Method -->
+        <div class="checkout-card mb-4">
+          <h5>Delivery Method</h5>
+          <p>Please select the preferred shipping method to use on this order.</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="shippingMethod" id="freeShipping" value="free" checked>
+            <label class="form-check-label" for="freeShipping">
+              Free Shipping - $0.00
+            </label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="radio" name="shippingMethod" id="flatRate" value="flat">
+            <label class="form-check-label" for="flatRate">
+              Flat Rate - $5.00
+            </label>
+          </div>
+          <div class="mb-3">
+            <label for="orderComments" class="form-label">Add Comments About Your Order</label>
+            <textarea class="form-control" id="orderComments" rows="3"></textarea>
+          </div>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="checkout-card mb-4">
+          <h5>Payment Method</h5>
+          <p>Please select the preferred payment method to use on this order.</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="paymentMethod" id="cashOnDelivery" value="cod" checked>
+            <label class="form-check-label" for="cashOnDelivery">
+              Cash On Delivery
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="paymentMethod" id="upi" value="upi">
+            <label class="form-check-label" for="upi">
+              UPI
+            </label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="radio" name="paymentMethod" id="bankTransfer" value="bank">
+            <label class="form-check-label" for="bankTransfer">
+              Bank Transfer
+            </label>
+          </div>
+          <div class="payment-icons">
+            <img src="./Images/payment-methods.png" alt="Payment Methods">
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column (Summary) -->
+      <div class="col-lg-4">
+        <div class="checkout-card summary-card">
+          <h5>Summary</h5>
+          <div class="summary-item">
+            <span>Sub Total:</span>
+            <span>$<span id="subtotal">0.00</span></span>
+          </div>
+          <div class="summary-item">
+            <span>Delivery Charges:</span>
+            <span>$<span id="delivery">0.00</span></span>
+          </div>
+          <div class="summary-total">
+            <span>Total Amount:</span>
+            <span>$<span id="total">0.00</span></span>
+          </div>
+          <div class="summary-products" id="summary-products">
+            <!-- Products will be dynamically added here -->
+          </div>
+        </div>
+        <button class="btn btn-primary place-order-btn">Place Order</button>
       </div>
     </div>
-
-    <!-- Billing Form -->
-    <div class="col-lg-8">
-      <form id="checkoutForm">
-        <h3>Billing Details</h3>
-        <div class="row">
-          <div class="col-md-6">
-            <input type="text" name="firstName" placeholder="First Name" required />
-          </div>
-          <div class="col-md-6">
-            <input type="text" name="lastName" placeholder="Last Name" required />
-          </div>
-        </div>
-        <input type="text" name="address" placeholder="Address" required />
-        <input type="text" name="city" placeholder="City" required />
-        <input type="text" name="postcode" placeholder="Post Code" required />
-        
-        <select name="region" required>
-          <option value="">Region/State</option>
-          <option value="cairo">Cairo</option>
-          <option value="giza">Giza</option>
-           <option value="fayoum">fayoum</option>
-          <option value="Alx">Alx</option>
-          <option value="Aswan">Aswan</option>
-           <option value="Mansoura">Mansoura</option>
-          <option value="Beni suef">Beni suef</option>
-
-
-        </select>
-
-        <h3>Payment Method</h3>
-        <label><input type="radio" name="payment" value="cod" checked /> Cash on Delivery</label>
-        <label><input type="radio" name="payment" value="card" /> Credit Card</label>
-        <label><input type="radio" name="payment" value="bank" /> Bank Transfer</label>
-
-        <div class="mt-3">
-          <button type="submit" id="place-order-btn">Place Order</button>
-        </div>
-      </form>
-    </div>
-   
-</div>
-
   </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="JS/check.js"></script>
+      <!-- Footer -->
+   <footer class="footer-section">
+    <div class="container">
+        <div class="row">
+
+            <!-- Foodzy Info -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="logo-section d-flex align-items-center mb-3">
+                    
+                    <img src="./Images/Page 1 1.png" alt="Foodzy Logo" style="width: 40px; height: 40px; border-radius: 14px; margin-right: 10px;">
+                    <div>
+                        <div class="logo-text">Foodzy</div>
+                        <div class="tagline">A Treasure of Tastes</div>
+                    </div>
+                </div>
+                <p>FoodTrove is the biggest market of grocery products. Get your daily needs from our store.</p>
+                <div class="contact-info">
+                   
+                    <p><img src="./Images/List → Item.png" style="width: 20.48px; height: 24px; margin-right: 10px;"> 51 Green St. Huntington, NY, USA</p>
+                    <p><img src="./Images/List → Item (1).png" style="width: 20.48px; height: 24px; margin-right: 10px;"> example@email.com</p>
+                    <p><img src="./Images/List → Item (2).png" style="width: 20.48px; height: 24px; margin-right: 10px;"> +91 123 4567890</p>
+                </div>
+            </div>
+
+            
+            <div class="col-lg-2 col-md-6 mb-4" id="Company">
+                <h5>Company</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="./about us.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="./Delivery.html" class="nav-link">Delivery Information</a></li>
+                    <li class="nav-item"><a href="./Privacy.html" class="nav-link">Privacy Policy</a></li>
+                    <li class="nav-item"><a href="./Terms&Condition.html" class="nav-link">Terms & Conditions</a></li>
+                    <li class="nav-item"><a href="./contactus.html" class="nav-link">Contact Us</a></li>
+                    <li class="nav-item"><a href="./supportcenter.html" class="nav-link">Support Center</a></li>
+                </ul>
+            </div>
+
+           
+            <div class="col-lg-2 col-md-6 mb-4" id="Category">
+                <h5>Category </h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="./product.html" class="nav-link">Dairy & Bakery</a></li>
+                    <li class="nav-item"><a href="./product.html" class="nav-link">Fruits & Vegetable</a></li>
+                    <li class="nav-item"><a href="./product.html" class="nav-link">Snack & Spice</a></li>
+                    <li class="nav-item"><a href="./product.html" class="nav-link">Juice & Drinks</a></li>
+                    <li class="nav-item"><a href="./product.html" class="nav-link">Chicken & Meat</a></li>
+                    <li class="nav-item"><a href="./product.html" class="nav-link">Fast Food</a></li>
+                </ul>
+            </div>
+
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h5>Subscribe Our Newsletter</h5>
+                <form class="position-relative mb-4 newsletter-form">
+                    <input type="email" class="form-control" placeholder="Search here...">
+                    <button type="submit" class="btn"><i class="fas fa-paper-plane"></i></button>
+                </form>
+                <div class="social-icons mb-4">
+                    
+                    <a href="#" target="_blank"><img src="./Images/146.png" alt="Facebook"></a>
+                    <a href="#" target="_blank"><img src="./Images/148.png" alt="twitter"></a>
+                    <a href="#" target="_blank"><img src="./Images/152.png" alt="Instagram"></a>
+                </div>
+                <div>
+                    
+                    <img src="./Images/18 →  → 1.jpg.png" alt="Gallery Image 1" class="gallery-img">
+                    <img src="./Images/18 →  → 2.jpg.png" alt="Gallery Image 2" class="gallery-img">
+                    <img src="./Images/18 →  → 3.jpg.png" alt="Gallery Image 3" class="gallery-img">
+                    <img src="./Images/18 →  → 4.jpg.png" alt="Gallery Image 4" class="gallery-img">
+                    <img src="./Images/18 →  → 5.jpg.png" alt="Gallery Image 5" class="gallery-img">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom text-center">
+            <p>&copy; 2025 <a href="#">foodzy</a>, All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+  <script src="JS/cart-manager.js"></script>
+  <script src="JS/checkout-enhanced.js"></script>
+  <script src="./JS/all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-  
+

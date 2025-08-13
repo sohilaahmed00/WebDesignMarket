@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./fontawesome-free-7.0.0-web/fontawesome-free-7.0.0-web/css/all.css">
+    <link rel="stylesheet" href="./css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../footer/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/nav.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+<link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/styleproduct.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="css/cart.css">
+   
     <title>Document</title>
 </head>
 <body>
 
 
 <!--  Nav bar -->
-   <nav class="navbar">
+ <nav class="navbar">
         <div class="nav-container">
             <!-- Top Navigation -->
             <div class="nav-top">
@@ -23,21 +26,21 @@
                         <i class="fas fa-bars"></i>
                     </button>
                     <ul class="nav-links">
-                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="index.html" class="nav-link-item">Home</a></li>
                         <li class="dropdown">
-                            <a href="#">Category <i class="fas fa-chevron-down"></i></a>
+                            <a href="#" class="nav-link-item">Category <i class="fas fa-chevron-down"></i></a>
                         </li>
                         <li class="dropdown">
-                            <a href="product.html">Products <i class="fas fa-chevron-down"></i></a>
+                            <a href="product.html" class="nav-link-item active">Products <i class="fas fa-chevron-down"></i></a>
                         </li>
                         <li class="dropdown">
-                            <a href="#">Pages <i class="fas fa-chevron-down"></i></a>
+                            <a href="#" class="nav-link-item">Pages <i class="fas fa-chevron-down"></i></a>
                         </li>
                         <li class="dropdown">
-                            <a href="#">Blog <i class="fas fa-chevron-down"></i></a>
+                            <a href="blogdetails.html" class="nav-link-item">Blog <i class="fas fa-chevron-down"></i></a>
                         </li>
                         <li class="dropdown">
-                            <a href="#">Elements <i class="fas fa-chevron-down"></i></a>
+                            <a href="#" class="nav-link-item">Elements <i class="fas fa-chevron-down"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -77,155 +80,195 @@
                 </div>
 
                 <div class="nav-actions">
-                    <a href="#" class="action-item">
+                    <a href="login.html" class="action-item">
                         <i class="fas fa-user"></i>
                         <span>Account</span>
                     </a>
-                    <a href="#" class="action-item">
-                        <i class="fas fa-heart"></i>
-                        <span>Wishlist</span>
+                    <a href="register.html" class="action-item">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Signup</span>
                     </a>
-                    <a href="#" class="action-item">
+                    <a href="cart.html" class="action-item">
                         <i class="fas fa-shopping-cart"></i>
                         <span>Cart</span>
+                        <span id="cart-count" class="cart-count">0</span>
                     </a>
                 </div>
             </div>
         </div>
     </nav>
 
-
-<!-- Container -->
-
-<div class="container " style="width: 1320px; height: 1618px;">
-<!--search-->
-<div class="search w-100 " >
-<input id="searchproduct" placeholder="items for you" class="w-100 " style="border-radius: 5px; background-color: #E9E9E9;"><br></div>
-
-<!--slides -->
-<div id="carouselExampleDark" class="carousel carousel-dark slide data-bs-ride=false">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active data-bs-ride=false" >
-     
-      <!-- products-->
-      <div class="d-flex flex-wrap col-md-3 w-auto   justify-content-evenly"  style="margin: 10px; padding: 5px; background-color:transparent; margin: 50px; " id="product">
-  <!--<div class="img w-auto " style="background-color:white ;border-radius: 1px; margin:5px  "> <img src="./Images/1.jpg.png" style="padding:13px ; width: 280px; height: 280px; " id="productimg" ><h6 class="text-center" style="color: #777777;">Vegetales</h6>
-   <div class="text-center" id="productfont"> <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i></div> 
-    <p class="text-center" style=" font-weight: bold;">  Fresh organic villa farm lomon<br> 500gm pack</p>
-    <p style="color: red; font-weight: 700; font-weight: bold;" class="text-center "> $120</p> 
-   
-</div> -->
-      </div>
-
+<!-- Breadcrumb Section -->
+<section class="breadcrumb-section">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <h1>Products</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Products</li>
+                </ol>
+            </nav>
+        </div>
     </div>
-    <div class="carousel-item data-bs-ride=false" >
-     
-       <!-- products2-->
-       <div class="d-flex flex-wrap col-md-3 w-auto   justify-content-evenly"  style="margin: 10px; padding: 5px; background-color:transparent; margin: 50px; " id="product2">
-  <!--<div class="img w-auto " style="background-color:white ;border-radius: 1px; margin:5px  "> <img src="./Images/1.jpg.png" style="padding:13px ; width: 280px; height: 280px;" id="productimg" ><h6 class="text-center" style="color: #777777;">Vegetales</h6>
-   <div class="text-center" id="productfont"> <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i></div> 
-    <p class="text-center" style=" font-weight: bold;">  Fresh organic villa farm lomon<br> 500gm pack</p>
-    <p style="color: red; font-weight: 700; font-weight: bold;" class="text-center "> $120</p>
-   
-</div> -->
-       </div>
+</section>
+<!-- Main Content -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar Filter -->
+            <div class="col-lg-3 col-md-4 mb-4">
+                <div class="filter">
+                    <h5 class="mb-3" style="font-weight: 600; color: #2c3e50;">Product Categories</h5>
+                    <div class="form-check mb-2">
+                        <input type="checkbox" id="vegetablefilter" name="vegetables" value="vegetables" class="form-check-input category-filter">
+                        <label class="form-check-label" for="vegetablefilter">Vegetables</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input type="checkbox" id="Drinkfilter" name="Bakery" value="Bakery" class="form-check-input category-filter">
+                        <label class="form-check-label" for="Drinkfilter">Bakery</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input type="checkbox" id="Snacksfilter" name="snakes" value="snakes" class="form-check-input category-filter">
+                        <label class="form-check-label" for="Snacksfilter">Snacks</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input type="checkbox" id="fruitsfilter" name="fruits" value="fruits" class="form-check-input category-filter">
+                        <label class="form-check-label" for="fruitsfilter">Fruits</label>
+                    </div>
+                </div>
+            </div>
 
-    </div> 
-    <div class="carousel-item data-bs-ride=false">
-    
-        <!-- products3-->
-      <div class="d-flex flex-wrap col-md-3 w-auto   justify-content-evenly"  style="margin: 10px; padding: 5px; background-color:transparent; margin: 50px; " id="product3">
-  <!--<div class="img w-auto " style="background-color:white ;border-radius: 1px; margin:5px  "> <img src="./Images/1.jpg.png" style="padding:13px ; width: 280px; height: 280px;" id="productimg" ><h6 class="text-center" style="color: #777777;">Vegetales</h6>
-   <div class="text-center" id="productfont"> <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i>
-         <i class="fa-regular fa-star  " style=""></i></div> 
-    <p class="text-center" style=" font-weight: bold;">  Fresh organic villa farm lomon<br> 500gm pack</p>
-    <p style="color: red; font-weight: 700; font-weight: bold;" class="text-center "> $120</p>
-   
-</div> -->
-       </div>
+            <!-- Products Section -->
+            <div class="col-lg-9 col-md-8">
+                <!-- Search Bar -->
+                <div class="search mb-4">
+                    <input id="searchproduct" placeholder="Search for items..." class="form-control">
+                </div>
 
+                <!-- Products Carousel -->
+                <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="false">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row g-3" id="product">
+                                <!-- Products will be injected here by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row g-3" id="product2">
+                                <!-- Products will be injected here by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row g-3" id="product3">
+                                <!-- Products will be injected here by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
 </div>
 
-</div>
+      <!-- Footer -->
+   <footer class="footer-section">
+    <div class="container">
+        <div class="row">
 
+            <!-- Foodzy Info -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="logo-section d-flex align-items-center mb-3">
+                    
+                    <img src="./Images/Page 1 1.png" alt="Foodzy Logo" style="width: 40px; height: 40px; border-radius: 14px; margin-right: 10px;">
+                    <div>
+                        <div class="logo-text">Foodzy</div>
+                        <div class="tagline">A Treasure of Tastes</div>
+                    </div>
+                </div>
+                <p>FoodTrove is the biggest market of grocery products. Get your daily needs from our store.</p>
+                <div class="contact-info">
+                   
+                    <p><img src="./Images/List → Item.png" style="width: 20.48px; height: 24px; margin-right: 10px;"> 51 Green St. Huntington, NY, USA</p>
+                    <p><img src="./Images/List → Item (1).png" style="width: 20.48px; height: 24px; margin-right: 10px;"> example@email.com</p>
+                    <p><img src="./Images/List → Item (2).png" style="width: 20.48px; height: 24px; margin-right: 10px;"> +91 123 4567890</p>
+                </div>
+            </div>
 
+            
+            <div class="col-lg-2 col-md-6 mb-4" id="Company">
+                <h5>Company</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="./about us.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="./Delivery.html" class="nav-link">Delivery Information</a></li>
+                    <li class="nav-item"><a href="./Privacy.html" class="nav-link">Privacy Policy</a></li>
+                    <li class="nav-item"><a href="./Terms&Condition.html" class="nav-link">Terms & Conditions</a></li>
+                    <li class="nav-item"><a href="./contactus.html" class="nav-link">Contact Us</a></li>
+                    <li class="nav-item"><a href="./supportcenter.html" class="nav-link">Support Center</a></li>
+                </ul>
+            </div>
 
-<!--footer-->
-<div class="footer " style="width: 100%; height: 413px; background-color: #E9E9E9;">
-    <div class="container " >
-<footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top" style="width: 1330px; height: 412.19px; "> 
-    <div class=" mb-3 w-auto"> 
-        <div class="d-flex justify-content-start">
-        <img src="./images/Page 1 1.png" class="imgfooter1 " style="width: 40px; height: 40px; border-radius: 14px; ">
-        <img src="./images/Group 474.png" class="imgfoooter2" style="width: 102px; height: 29px; margin-top: 12px;  "></div>
-        <p style="width: 394.9px; height: 44.5px; margin-top: 2px; font-weight: 400; font-size: 14px;">FoodTrove is the biggest market of grocery products. Get your daily needs from our store.</p>
-        <div class="d-flex justify-content-start">
-            <img src="./images/List → Item.png" class="imgfooter2" style="width: 20.48px; height: 24px; margin: 5px 3px;">
-            <p style="width: 350px; height: 46px; font-weight: 400; font-size: 14px;">51 Green St.Huntington ohaio beach ontario, NY4783, USA.</p></div>
-        <div class="d-flex justify-content-start">
-            <img src="./images/List → Item (1).png" class="imgfooter3" style="width: 20.48px; height: 24px; margin: 5px 3px;">
-            <p style="width: 350px; height: 46px; font-weight: 400; font-size: 14px;">example@email.com</p></div>
-        <div class="d-flex justify-content-start">
-            <img src="./images/List → Item (2).png" class="imgfooter3" style="width: 20.48px; height: 24px; margin: 5px 3px;">
-            <p style="width: 350px; height: 46px; font-weight: 400; font-size: 14px;">+91 123 4567890</p></div>
+           
+            <div class="col-lg-2 col-md-6 mb-4" id="Category">
+                <h5>Category </h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="./product.html" class="nav-link">Dairy & Bakery</a></li>
+                    <li class="nav-item"><a href="./product.html" class="nav-link">Fruits & Vegetable</a></li>
+                    <li class="nav-item"><a href="./product.html" class="nav-link">Snack & Spice</a></li>
+                    <li class="nav-item"><a href="./product.html" class="nav-link">Juice & Drinks</a></li>
+                    <li class="nav-item"><a href="./product.html" class="nav-link">Chicken & Meat</a></li>
+                    <li class="nav-item"><a href="./product.html" class="nav-link">Fast Food</a></li>
+                </ul>
+            </div>
+
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h5>Subscribe Our Newsletter</h5>
+                <form class="position-relative mb-4 newsletter-form">
+                    <input type="email" class="form-control" placeholder="Search here...">
+                    <button type="submit" class="btn"><i class="fas fa-paper-plane"></i></button>
+                </form>
+                <div class="social-icons mb-4">
+                    
+                    <a href="#" target="_blank"><img src="./Images/146.png" alt="Facebook"></a>
+                    <a href="#" target="_blank"><img src="./Images/148.png" alt="twitter"></a>
+                    <a href="#" target="_blank"><img src="./Images/152.png" alt="Instagram"></a>
+                </div>
+                <div>
+                    
+                    <img src="./Images/18 →  → 1.jpg.png" alt="Gallery Image 1" class="gallery-img">
+                    <img src="./Images/18 →  → 2.jpg.png" alt="Gallery Image 2" class="gallery-img">
+                    <img src="./Images/18 →  → 3.jpg.png" alt="Gallery Image 3" class="gallery-img">
+                    <img src="./Images/18 →  → 4.jpg.png" alt="Gallery Image 4" class="gallery-img">
+                    <img src="./Images/18 →  → 5.jpg.png" alt="Gallery Image 5" class="gallery-img">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom text-center">
+            <p>&copy; 2025 <a href="#">foodzy</a>, All rights reserved.</p>
+        </div>
     </div>
-          <!--<div class="col mb-3"></div> -->
-          <div class="  mb-3" > <h5>Company</h5> 
-            <ul class="nav flex-column"> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary" style="color: #777777;">About Us</a></li>
-                 <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary" style="color: #777777;">Dekivery Information</a></li> 
-                 <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary" style="color: #777777;">Privacy Policy</a></li> 
-                 <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary" style="color: #777777;">Terms & conditions</a></li> 
-                 <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary" style="color: #777777;">Contact Us</a></li> </ul> </div>
-          <div class="  mb-3"> <h5>Category</h5> <ul class="nav flex-column"> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary" style="color: #777777;">Dairy & Bakery</a></li>
-                 <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary" style="color: #777777;">Fruits & vegetable</a></li> 
-                 <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary" style="color: #777777;">Snack & spice</a></li> 
-                 <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary" style="color: #777777;">juice & Drinks</a></li> 
-                 <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary" style="color: #777777;">Hicken & Meat</a></li> </ul> </div>
-          <div class=" mb-3"> <h5>Subscribe Our Newsletter</h5>
-                        <div class="d-flex justify-content-evenly " style="margin:10px 2px;">
-                         <a href="#" target="_blank"><img src="./images/146.png" alt="Facebook"> </a>
-                         <a href="#" target="_blank"><img src="./images/148.png" alt="twitter"> </a>
-                         <a href="#" target="_blank"><img src="./images/152.png" alt="Instagram"> </a></div>
-                         <div class="d-flex justify-content-between " style=" padding: 1px;">
-                         <img src="./images/18 →  → 1.jpg.png" alt="" style="width: 73px;"> </a>
-                         <img src="./images/18 →  → 2.jpg.png" alt="" style="width: 73px;"> </a>
-                         <img src="./images/18 →  → 3.jpg.png" alt="" style="width: 73px;"> </a>
-                         <img src="./images/18 →  → 4.jpg.png" alt="" style="width: 73px;"> </a>
-                         <img src="./images/18 →  → 5.jpg.png" alt="" style="width: 73px;"> </a></div>
-                         
-          </div> 
-                        </footer></div>
-</div>
+</footer>
 
 
-<script src="../footer/js/bootstrap.bundle.min.js"></script>
+<script src="./JS/all.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+<script src="./JS/cart-manager.js"></script>
 <script src="./JS/product.js"></script>
 </body>
 </html>
-
-

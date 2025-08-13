@@ -255,6 +255,49 @@
 <script src="./JS/product.js"></script>
  <script src="../footer/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./Admin/JS/product-manager.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', ( ) => {
+            const productId = localStorage.getItem('selectedProductId');
+            if (!productId) {
+                document.getElementById('proddetails').innerHTML = '<p class="text-center w-100">No product selected. Please go back to the products page.</p>';
+                return;
+            }
 
+            const product = productManager.getProductById(parseInt(productId));
+            if (!product) {
+                document.getElementById('proddetails').innerHTML = '<p class="text-center w-100">Product not found.</p>';
+                return;
+            }
+
+            function renderStars(rating) {
+                const numRating = parseFloat(rating) || 0;
+                const fullStars = Math.floor(numRating);
+                const halfStar = numRating % 1 >= 0.5;
+                const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+                let starsHTML = '';
+                for (let i = 0; i < fullStars; i++) starsHTML += '<i class="fas fa-star"></i>';
+                if (halfStar) starsHTML += '<i class="fas fa-star-half-alt"></i>';
+                for (let i = 0; i < emptyStars; i++) starsHTML += '<i class="far fa-star"></i>';
+                return `<div class="rating-stars mb-2">${starsHTML} <span>(${numRating.toFixed(1)})</span></div>`;
+            }
+
+            const detailsContainer = document.getElementById('proddetails');
+            detailsContainer.innerHTML = `
+                <div class="col-md-5 text-center">
+                    <img src="${product.magproducturl}" class="img-fluid rounded shadow-sm" style="max-height: 400px;">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="mb-3">${product.nameproduct}</h2>
+                    ${renderStars(product.rating)}
+                    <p class="text-muted lead">${product.p}</p>
+                    <p><strong>Category:</strong> <span class="badge bg-secondary">${product.categoryproduct}</span></p>
+                    <h3 class="text-danger mt-3">${product.salary}</h3>
+                    <button class="btn btn-danger btn-lg mt-3">Add to Cart <i class="fas fa-shopping-cart ms-2"></i></button>
+                </div>
+            `;
+        });
+    </script>
 </body>
 </html>

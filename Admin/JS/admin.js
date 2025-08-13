@@ -1,189 +1,237 @@
-let users = JSON.parse(localStorage.getItem('foodzy_users')) || [];
-let products = JSON.parse(localStorage.getItem('productsArr')) || [];
-let orders = JSON.parse(localStorage.getItem('foodzy_orders')) || [];
+// --- GLOBAL VARIABLES ---
+let userModal;
+let productModal;
 
-function showSection(section) {
+// --- UI INITIALIZATION ---
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize Bootstrap Modals
+    userModal = new bootstrap.Modal(document.getElementById('userModal'));
+    productModal = new bootstrap.Modal(document.getElementById('productModal'));
+    
+    // Show the default section on page load
+    showSection('users', document.querySelector('.sidebar a[onclick*="users"]'));
+
+    // Logout functionality
+    document.getElementById('logout-button').addEventListener('click', (e) => {
+        e.preventDefault();
+        ui.showConfirm('Are you sure you want to log out?', () => {
+            auth.logout();
+            ui.showAlert('You have been logged out successfully.', 'success');
+            setTimeout(() => { window.location.href = '../login.html'; }, 1500);
+        });
+    });
+});
+
+// --- NAVIGATION ---
+function showSection(sectionId, navLink) {
     document.querySelectorAll('.section').forEach(sec => sec.classList.add('d-none'));
-    document.getElementById(`${section}-section`).classList.remove('d-none');
-    if (section === 'users') loadUsers();
-    if (section === 'products') loadProducts();
-    if (section === 'orders') loadOrders();
+    document.getElementById(`${sectionId}-section`).classList.remove('d-none');
+    document.querySelectorAll('.sidebar .nav-link').forEach(link => link.classList.remove('active'));
+    if (navLink) navLink.classList.add('active');
+
+    switch (sectionId) {
+        case 'users': loadUsers(); break;
+        case 'products': loadProducts(); break;
+        case 'orders': loadOrders(); break;
+    }
 }
 
+// --- USER MANAGEMENT ---
 function loadUsers() {
+    const users = auth.getUsers();
     const tbody = document.querySelector('#users-table tbody');
     tbody.innerHTML = '';
-    users.forEach((user, index) => {
+    
+    users.forEach(user => {
         const tr = document.createElement('tr');
+        const adminBadge = user.isAdmin ? '<span class="badge bg-primary">Admin</span>' : '';
         tr.innerHTML = `
             <td>${user.id}</td>
-            <td>${user.firstName}</td>
-            <td>${user.lastName}</td>
+            <td>${user.firstName} ${user.lastName} ${adminBadge}</td>
             <td>${user.email}</td>
-            <td>${user.phoneNumber}</td>
+            <td>${user.phoneNumber || 'N/A'}</td>
             <td>
-                <button class="btn btn-sm btn-warning" onclick="editUser(${index})"><i class="fas fa-edit"></i></button>
-                <button class="btn btn-sm btn-danger" onclick="deleteUser(${index})"><i class="fas fa-trash"></i></button>
+                <button class="btn btn-sm btn-warning" onclick="openUserModal(${user.id})" ${user.isAdmin ? 'disabled' : ''}><i class="fas fa-edit"></i> Edit</button>
+                <button class="btn btn-sm btn-danger" onclick="deleteUser(${user.id})" ${user.isAdmin ? 'disabled' : ''}><i class="fas fa-trash"></i> Delete</button>
             </td>
         `;
         tbody.appendChild(tr);
     });
 }
 
-function editUser(index) {
-    const user = users[index];
-    document.getElementById('userId').value = index;
-    document.getElementById('firstName').value = user.firstName;
-    document.getElementById('lastName').value = user.lastName;
-    document.getElementById('email').value = user.email;
-    document.getElementById('phoneNumber').value = user.phoneNumber;
-    document.getElementById('password').value = user.password;
-    document.getElementById('address').value = user.address;
-    document.getElementById('city').value = user.city;
-    document.getElementById('postCode').value = user.postCode;
-    document.getElementById('country').value = user.country;
-    document.getElementById('regionState').value = user.regionState;
-    new bootstrap.Modal(document.getElementById('userModal')).show();
+function openUserModal(userId = null) {
+    const form = document.getElementById('userForm');
+    form.reset();
+    document.getElementById('userId').value = '';
+    const modalTitle = document.getElementById('userModalTitle');
+    const passwordGroup = document.getElementById('password-group');
+    const passwordInput = document.getElementById('password');
+
+    if (userId !== null) {
+        modalTitle.textContent = 'Edit User';
+        const user = auth.getUserById(userId);
+        if (user) {
+            document.getElementById('userId').value = user.id;
+            document.getElementById('firstName').value = user.firstName;
+            document.getElementById('lastName').value = user.lastName;
+            document.getElementById('email').value = user.email;
+            document.getElementById('phoneNumber').value = user.phoneNumber || '';
+            passwordGroup.style.display = 'none';
+            passwordInput.required = false;
+        }
+    } else {
+        modalTitle.textContent = 'Add New User';
+        passwordGroup.style.display = 'block';
+        passwordInput.required = true;
+    }
+    userModal.show();
 }
 
 function saveUser() {
-    const index = document.getElementById('userId').value;
-    const userData = {
-        id: index ? users[index].id : Date.now(),
-        firstName: document.getElementById('firstName').value,
-        lastName: document.getElementById('lastName').value,
-        email: document.getElementById('email').value.toLowerCase(),
-        phoneNumber: document.getElementById('phoneNumber').value,
-        password: document.getElementById('password').value,
-        address: document.getElementById('address').value,
-        city: document.getElementById('city').value,
-        postCode: document.getElementById('postCode').value,
-        country: document.getElementById('country').value,
-        regionState: document.getElementById('regionState').value,
-        registrationDate: index ? users[index].registrationDate : new Date().toISOString(),
-        isActive: true
-    };
-
-    if (index !== '') {
-        users[index] = userData;
+    const userId = document.getElementById('userId').value ? parseInt(document.getElementById('userId').value) : null;
+    
+    if (userId !== null) {
+        const updatedData = {
+            firstName: document.getElementById('firstName').value,
+            lastName: document.getElementById('lastName').value,
+            email: document.getElementById('email').value,
+            phoneNumber: document.getElementById('phoneNumber').value,
+        };
+        auth.updateUser(userId, updatedData);
+        ui.showAlert('User updated successfully!', 'success');
     } else {
-        users.push(userData);
+        const userData = {
+            firstName: document.getElementById('firstName').value,
+            lastName: document.getElementById('lastName').value,
+            email: document.getElementById('email').value,
+            phoneNumber: document.getElementById('phoneNumber').value,
+            password: document.getElementById('password').value,
+        };
+        if (!userData.password) {
+            ui.showAlert('Password is required for new users.', 'danger');
+            return;
+        }
+        const result = auth.register(userData);
+        ui.showAlert(result.message, result.success ? 'success' : 'danger');
     }
 
-    localStorage.setItem('foodzy_users', JSON.stringify(users));
-    bootstrap.Modal.getInstance(document.getElementById('userModal')).hide();
+    userModal.hide();
     loadUsers();
 }
 
-function deleteUser(index) {
-    if (confirm('Are you sure you want to delete this user?')) {
-        users.splice(index, 1);
-        localStorage.setItem('foodzy_users', JSON.stringify(users));
+function deleteUser(userId) {
+    ui.showConfirm('Are you sure you want to delete this user?', () => {
+        auth.deleteUser(userId);
         loadUsers();
-    }
+    });
 }
 
+// --- PRODUCT MANAGEMENT ---
 function loadProducts() {
+    const products = productManager.getProducts();
     const tbody = document.querySelector('#products-table tbody');
     tbody.innerHTML = '';
-    products.forEach((product, index) => {
+    products.forEach(product => {
         const tr = document.createElement('tr');
+        
+        // === تم تصحيح المسار هنا ===
+        // The path now correctly points from the Admin folder back to the root, then into Images.
+        const imageUrl = product.magproducturl.replace('./', '../');
+
         tr.innerHTML = `
-            <td>${index + 1}</td>
+            <td>${product.id}</td>
+            <td><img src="${imageUrl}" alt="${product.nameproduct}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;"></td>
             <td>${product.nameproduct}</td>
             <td>${product.categoryproduct}</td>
             <td>${product.salary}</td>
-            <td>${product.magproducturl}</td>
             <td>
-                <button class="btn btn-sm btn-warning" onclick="editProduct(${index})"><i class="fas fa-edit"></i></button>
-                <button class="btn btn-sm btn-danger" onclick="deleteProduct(${index})"><i class="fas fa-trash"></i></button>
+                <button class="btn btn-sm btn-warning" onclick="openProductModal(${product.id})"><i class="fas fa-edit"></i> Edit</button>
+                <button class="btn btn-sm btn-danger" onclick="deleteProduct(${product.id})"><i class="fas fa-trash"></i> Delete</button>
             </td>
         `;
         tbody.appendChild(tr);
     });
 }
 
-function editProduct(index) {
-    const product = products[index];
-    document.getElementById('productId').value = index;
-    document.getElementById('nameproduct').value = product.nameproduct;
-    document.getElementById('categoryproduct').value = product.categoryproduct;
-    document.getElementById('p').value = product.p;
-    document.getElementById('salary').value = product.salary;
-    document.getElementById('old_salary').value = product.old_salary || '';
-    document.getElementById('magproducturl').value = product.magproducturl;
-    document.getElementById('rating').value = product.rating || 0;
-    new bootstrap.Modal(document.getElementById('productModal')).show();
+function openProductModal(productId = null) {
+    const form = document.getElementById('productForm');
+    form.reset();
+    document.getElementById('productId').value = '';
+    const modalTitle = document.getElementById('productModalTitle');
+    if (productId) {
+        modalTitle.textContent = 'Edit Product';
+        const product = productManager.getProductById(productId);
+        if (product) {
+            document.getElementById('productId').value = product.id;
+            document.getElementById('nameproduct').value = product.nameproduct;
+            document.getElementById('categoryproduct').value = product.categoryproduct;
+            document.getElementById('p').value = product.p;
+            document.getElementById('salary').value = product.salary;
+            document.getElementById('old_salary').value = product.old_salary || '';
+            document.getElementById('magproducturl').value = product.magproducturl;
+            document.getElementById('rating').value = product.rating || 0;
+        }
+    } else {
+        modalTitle.textContent = 'Add New Product';
+    }
+    productModal.show();
 }
 
 function saveProduct() {
-    const index = document.getElementById('productId').value;
+    const productId = document.getElementById('productId').value ? parseInt(document.getElementById('productId').value) : null;
     const productData = {
-        magproducturl: document.getElementById('magproducturl').value,
+        nameproduct: document.getElementById('nameproduct').value,
         categoryproduct: document.getElementById('categoryproduct').value,
         p: document.getElementById('p').value,
         salary: document.getElementById('salary').value,
         old_salary: document.getElementById('old_salary').value,
+        magproducturl: document.getElementById('magproducturl').value,
         rating: parseFloat(document.getElementById('rating').value) || 0,
-        nameproduct: document.getElementById('nameproduct').value
     };
-
-    if (index !== '') {
-        products[index] = productData;
+    if (productId) {
+        productManager.updateProduct(productId, productData);
+        ui.showAlert('Product updated successfully!', 'success');
     } else {
-        products.push(productData);
+        productManager.addProduct(productData);
+        ui.showAlert('Product added successfully!', 'success');
     }
-
-    localStorage.setItem('productsArr', JSON.stringify(products));
-    bootstrap.Modal.getInstance(document.getElementById('productModal')).hide();
+    productModal.hide();
     loadProducts();
 }
 
-function deleteProduct(index) {
-    if (confirm('Are you sure you want to delete this product?')) {
-        products.splice(index, 1);
-        localStorage.setItem('productsArr', JSON.stringify(products));
+function deleteProduct(productId) {
+    ui.showConfirm('Are you sure you want to delete this product?', () => {
+        productManager.deleteProduct(productId);
+        ui.showAlert('Product deleted successfully.', 'success');
         loadProducts();
-    }
+    });
 }
 
+// --- ORDER MANAGEMENT ---
 function loadOrders() {
+    const orders = orderManager.getOrders();
     const tbody = document.querySelector('#orders-table tbody');
     tbody.innerHTML = '';
-    orders.forEach((order, index) => {
+    orders.forEach(order => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
             <td>${order.id}</td>
             <td>${order.userEmail}</td>
-            <td>$${order.total}</td>
-            <td>${new Date(order.date).toLocaleString()}</td>
+            <td>$${order.total.toFixed(2)}</td>
+            <td>${new Date(order.date).toLocaleDateString()}</td>
             <td>${order.items.length} items</td>
             <td>
-                <button class="btn btn-sm btn-danger" onclick="deleteOrder(${index})"><i class="fas fa-trash"></i></button>
+                <button class="btn btn-sm btn-danger" onclick="deleteOrder(${order.id})"><i class="fas fa-trash"></i> Delete</button>
             </td>
         `;
         tbody.appendChild(tr);
     });
 }
 
-function deleteOrder(index) {
-    if (confirm('Are you sure you want to delete this order?')) {
-        orders.splice(index, 1);
-        localStorage.setItem('foodzy_orders', JSON.stringify(orders));
+function deleteOrder(orderId) {
+    ui.showConfirm('Are you sure you want to delete this order?', () => {
+        orderManager.deleteOrder(orderId);
+        ui.showAlert('Order deleted successfully.', 'success');
         loadOrders();
-    }
+    });
 }
-
-// Initial load
-showSection('users');
-
-// Clear modal forms on close
-document.getElementById('userModal').addEventListener('hidden.bs.modal', () => {
-    document.getElementById('userForm').reset();
-    document.getElementById('userId').value = '';
-});
-
-document.getElementById('productModal').addEventListener('hidden.bs.modal', () => {
-    document.getElementById('productForm').reset();
-    document.getElementById('productId').value = '';
-});

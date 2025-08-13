@@ -9,11 +9,11 @@ detailsbutton --> id="productetails"
 var arrproduct;
 try {
     // Check if productManager is loaded and get products from it
-    if (typeof productManager !== 'undefined') {
+    if (typeof productManager !== 'undefined' && typeof cartManager !== 'undefined') {
         arrproduct = productManager.getProducts();
     } else {
         // Fallback in case productManager fails to load, though this shouldn't happen
-        console.error("Product Manager is not loaded. Using empty array.");
+        console.error("Product Manager or Cart Manager is not loaded. Using empty array.");
         arrproduct = [];
     }
 } catch (error) {
@@ -43,7 +43,7 @@ function products(array = arrproduct) {
                     <p class="product-price">${array[i].salary}</p>
                     <div>
                         <button id="productetails" onclick="goToDetails(${array[i].id})" class="btn btn-details">Details</button>
-                        <button id="Addbutton" class="btn btn-add">Add</button>
+                        <button id="Addbutton" onclick="addToCartFromProductPage(${array[i].id})" class="btn btn-add">Add</button>
                     </div>
                 </div>
             </div>
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="d-flex col justify-content-start">
                 <p style="font-weight: bolder;">item: 1</p>
                 </div>
-                <button id="Addbutton" style="color:white ; background-color: red;width: 85px;height: 36px;border-radius: 4px;border: red ;" > Add</button>
+                <button id="Addbutton" onclick="addToCartFromProductDetails()" style="color:white ; background-color: red;width: 85px;height: 36px;border-radius: 4px;border: red ;" > Add</button>
         `;
     }
 });
@@ -208,3 +208,34 @@ function starclick(clickedStar) {
         stars[i].style.color = "";
     }
 }
+
+
+function addToCartFromProductPage(productId) {
+    const product = arrproduct.find(p => p.id === productId);
+    if (product) {
+        cartManager.addToCart({
+            id: product.id,
+            name: product.nameproduct,
+            price: product.salary,
+            image: product.magproducturl
+        });
+    }
+}
+
+
+
+function addToCartFromProductDetails() {
+    const productId = localStorage.getItem("selectedProductId");
+    if (!productId) return;
+
+    const product = productManager.getProductById(parseInt(productId));
+    if (product) {
+        cartManager.addToCart({
+            id: product.id,
+            name: product.nameproduct,
+            price: product.salary,
+            image: product.magproducturl
+        });
+    }
+}
+

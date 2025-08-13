@@ -1,4 +1,3 @@
-
 let cart = [];
 const cartItemsContainer = document.getElementById('cart-items');
 
@@ -7,7 +6,17 @@ function renderCart() {
   cartItemsContainer.innerHTML = '';
 
   if(cart.length === 0){
-    cartItemsContainer.innerHTML = '<tr><td colspan="5" class="text-center">Cart is empty</td></tr>';
+    cartItemsContainer.innerHTML = `
+      <tr>
+        <td colspan="5" class="text-center" style="padding: 40px;">
+          <div style="color: #666; font-size: 18px;">
+            <i class="fas fa-shopping-cart" style="font-size: 48px; margin-bottom: 15px; opacity: 0.3;"></i>
+            <p>Your cart is empty</p>
+            <a href="index.html" style="color: #ff4b3e; text-decoration: none;">Continue Shopping</a>
+          </div>
+        </td>
+      </tr>
+    `;
     return;
   }
 
@@ -17,119 +26,172 @@ function renderCart() {
 
     const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td class="d-flex align-items-center">
-        <img src="${item.image}" alt="${item.name}" class="product-img" />
-        <span>${item.name}</span>
-      </td>
-      <td>$${priceNum.toFixed(2)}</td>
       <td>
-        <button class="btn btn-sm btn-outline-secondary decrease-qty" data-index="${index}">-</button>
-        <input type="text" class="qty-input" value="${item.quantity}" data-index="${index}" />
-        <button class="btn btn-sm btn-outline-secondary increase-qty" data-index="${index}">+</button>
+        <div class="product-info">
+          <img src="${item.image}" alt="${item.name}" class="product-img" />
+          <div>
+            <h6 class="product-name">${item.name}</h6>
+          </div>
+        </div>
       </td>
-      <td>$${total}</td>
-      <td><button class="btn-remove" data-index="${index}" title="Delete">&#128465;</button></td>
+      <td style="font-weight: 600; color: #ff4b3e;">$${priceNum.toFixed(2)}</td>
+      <td>
+        <div class="quantity-controls">
+          <button class="qty-btn decrease-qty" data-index="${index}">-</button>
+          <input type="text" class="qty-input" value="${item.quantity}" data-index="${index}" readonly />
+          <button class="qty-btn increase-qty" data-index="${index}">+</button>
+        </div>
+      </td>
+      <td style="font-weight: 600; color: #333;">$${total}</td>
+      <td>
+        <button class="btn-remove" data-index="${index}" title="Remove item">
+          <i class="fas fa-trash"></i>
+        </button>
+      </td>
     `;
     cartItemsContainer.appendChild(tr);
   });
+
+  // Update cart total display
+  updateCartTotal();
 }
 
-renderCart();
+function updateCartTotal() {
+  const total = cart.reduce((sum, item) => {
+    const price = parseFloat(item.price.toString().replace(/[^0-9.-]+/g,"")) || 0;
+    return sum + (price * item.quantity);
+  }, 0);
 
-cartItemsContainer.addEventListener('input', function(e){
-  if(e.target.classList.contains('qty-input')){
-    const index = e.target.dataset.index;
-    let val = parseInt(e.target.value);
-    if(isNaN(val) || val < 1) val = 1;
-    cart[index].quantity = val;
-    localStorage.setItem('cart', JSON.stringify(cart));
-    renderCart();
-  }
-});
+  // You can add a total display section if needed
+  console.log('Cart Total:', total.toFixed(2));
+}
 
-cartItemsContainer.addEventListener('click', function(e){
-  const index = e.target.dataset.index;
-  if(e.target.classList.contains('increase-qty')){
-    cart[index].quantity++;
-    localStorage.setItem('cart', JSON.stringify(cart));
-    renderCart();
-  }
-  if(e.target.classList.contains('decrease-qty')){
-    if(cart[index].quantity > 1){
-      cart[index].quantity--;
+// Event listeners for cart interactions
+if (cartItemsContainer) {
+  cartItemsContainer.addEventListener('input', function(e){
+    if(e.target.classList.contains('qty-input')){
+      const index = e.target.dataset.index;
+      let val = parseInt(e.target.value);
+      if(isNaN(val) || val < 1) val = 1;
+      cart[index].quantity = val;
       localStorage.setItem('cart', JSON.stringify(cart));
       renderCart();
+      
+      // Update cart count in navigation
+      if (typeof cartManager !== 'undefined') {
+        cartManager.updateCartDisplay();
+      }
     }
-  }
-  if(e.target.classList.contains('btn-remove')){
-    cart.splice(index, 1);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    renderCart();
-  }
-});
+  });
+
+  cartItemsContainer.addEventListener('click', function(e){
+    const index = e.target.closest('[data-index]')?.dataset.index;
+    
+    if(e.target.classList.contains('increase-qty') || e.target.closest('.increase-qty')){
+      cart[index].quantity++;
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+      
+      // Update cart count in navigation
+      if (typeof cartManager !== 'undefined') {
+        cartManager.updateCartDisplay();
+      }
+    }
+    
+    if(e.target.classList.contains('decrease-qty') || e.target.closest('.decrease-qty')){
+      if(cart[index].quantity > 1){
+        cart[index].quantity--;
+        localStorage.setItem('cart', JSON.stringify(cart));
+        renderCart();
+        
+        // Update cart count in navigation
+        if (typeof cartManager !== 'undefined') {
+          cartManager.updateCartDisplay();
+        }
+      }
+    }
+    
+    if(e.target.classList.contains('btn-remove') || e.target.closest('.btn-remove')){
+      // Show confirmation before removing
+      if(confirm('Are you sure you want to remove this item from your cart?')) {
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        renderCart();
+        
+        // Update cart count in navigation
+        if (typeof cartManager !== 'undefined') {
+          cartManager.updateCartDisplay();
+        }
+        
+        // Show removal message
+        showMessage('Item removed from cart', 'success');
+      }
+    }
+  });
+}
 
 function checkout() {
   if(cart.length === 0){
-    alert('The basket is empty');
-    return;
-  }
-  localStorage.removeItem('cart'); 
-  window.location.href = 'thank.html';
-}
-
-// Search filter
-function doSearch(e) {
-  e.preventDefault();
-  const query = document.getElementById('searchInput').value.trim().toLowerCase();
-
-  const rows = cartItemsContainer.querySelectorAll('tr');
-  rows.forEach(row => {
-    const nameCell = row.querySelector('td span');
-    if(nameCell) {
-      const productName = nameCell.textContent.toLowerCase();
-      row.style.display = productName.includes(query) ? '' : 'none';
-    }
-  });
-}
-
-
-
-
-
-
-
-// Modifications to cart.js (add this to the existing cart.js file)
-function checkoutCart() {
-  if(cart.length === 0){
-    alert('The basket is empty');
+    showMessage('Your cart is empty', 'error');
     return;
   }
   
-  const currentUserEmail = localStorage.getItem('currentUserEmail');
-  if (!currentUserEmail) {
-    alert('Please login to place an order');
-    window.location.href = 'login.html';
-    return;
-  }
-  
-  let total = 0;
-  cart.forEach(item => {
-    let priceNum = parseFloat(item.price.toString().replace(/[^0-9.-]+/g,"")) || 0;
-    total += priceNum * item.quantity;
-  });
-  
-  const order = {
-    id: Date.now(),
-    userEmail: currentUserEmail,
-    items: [...cart],
-    total: total.toFixed(2),
-    date: new Date().toISOString()
-  };
-  
-  let orders = JSON.parse(localStorage.getItem('foodzy_orders')) || [];
-  orders.push(order);
-  localStorage.setItem('foodzy_orders', JSON.stringify(orders));
-  
-  localStorage.removeItem('cart'); 
-  window.location.href = 'thank.html';
+  // Navigate to checkout without clearing cart
+  window.location.href = 'checkout.html';
 }
+
+function showMessage(message, type = 'info') {
+  // Create toast notification
+  const toast = document.createElement('div');
+  toast.className = 'cart-toast';
+  toast.innerHTML = `
+    <div class="toast-content">
+      <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
+      <span>${message}</span>
+    </div>
+  `;
+  
+  // Add styles
+  const bgColor = type === 'success' ? '#28a745' : type === 'error' ? '#dc3545' : '#17a2b8';
+  toast.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: ${bgColor};
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    z-index: 9999;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  `;
+  
+  document.body.appendChild(toast);
+  
+  // Animate in
+  setTimeout(() => {
+    toast.style.transform = 'translateX(0)';
+  }, 100);
+  
+  // Remove after 3 seconds
+  setTimeout(() => {
+    toast.style.transform = 'translateX(100%)';
+    setTimeout(() => {
+      if (toast.parentNode) {
+        toast.parentNode.removeChild(toast);
+      }
+    }, 300);
+  }, 3000);
+}
+
+// Initialize cart on page load
+document.addEventListener('DOMContentLoaded', function() {
+  renderCart();
+  
+  // Update cart count in navigation if cart manager is available
+  if (typeof cartManager !== 'undefined') {
+    cartManager.updateCartDisplay();
+  }
+});
+
